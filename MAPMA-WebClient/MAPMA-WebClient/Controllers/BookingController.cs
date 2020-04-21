@@ -22,5 +22,21 @@ namespace MAPMA_WebClient.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult GetBooking (int escapeRoomID, string username, DateTime BDate)
+        {
+            IBookingServices bs = new BookingServicesClient();
+            Booking book = bs.Get(escapeRoomID, username, BDate);
+            return View(book);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteBooking ( int escapeRoomID, string username, DateTime BDate )
+        {
+            IBookingServices bs = new BookingServicesClient();
+            Booking book = bs.Get(escapeRoomID, username, BDate);
+            return View(book);
+        }
+
     }
 }
