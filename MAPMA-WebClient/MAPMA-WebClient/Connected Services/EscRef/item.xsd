@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://localhost:8735/Design_Time_Addresses/Escaperoom/" elementFormDefault="qualified" targetNamespace="http://localhost:8735/Design_Time_Addresses/Escaperoom/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8735/Design_Time_Addresses/Escaperoom/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ModelLayer" />
+  <xs:element name="GetForOwner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ER_ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetForOwnerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ModelLayer" minOccurs="0" name="GetForOwnerResult" nillable="true" type="q1:EscapeRoom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllForOwner">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllForOwnerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ModelLayer" minOccurs="0" name="GetAllForOwnerResult" nillable="true" type="q2:ArrayOfEscapeRoom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEscapeRoom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxClearTime" type="xs:decimal" />
+        <xs:element minOccurs="0" name="cleanTime" type="xs:decimal" />
+        <xs:element minOccurs="0" name="price" type="xs:decimal" />
+        <xs:element minOccurs="0" name="rating" type="xs:decimal" />
+        <xs:element minOccurs="0" name="empId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateEscapeRoomResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEscapeRoom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ER_ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEscapeRoomResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

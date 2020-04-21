@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="da67e3e9-c264-4dfb-a7b8-282b5349590c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8736/Design_Time_Addresses/Employee/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="3327f73f-2f7d-409f-b43a-45b9cd009ff5" SourceId="1" SourceUrl="http://localhost:8736/Design_Time_Addresses/Employee/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="974e323e-3fe7-42c5-b339-ae9b345c290b" SourceId="1" SourceUrl="http://localhost:8736/Design_Time_Addresses/Employee/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="f92f4b5b-e75e-4e4d-aa21-c94e53d2931f" SourceId="1" SourceUrl="http://localhost:8736/Design_Time_Addresses/Employee/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="1f134202-36bd-4a2a-91b9-3733d9351e64" SourceId="1" SourceUrl="http://localhost:8736/Design_Time_Addresses/Employee/?xsd=xsd2" />
+    <MetadataFile FileName="EmplyeeServices.wsdl" MetadataType="Wsdl" ID="71efc67e-adec-4652-a7ec-74f3270e6cb5" SourceId="1" SourceUrl="http://localhost:8736/Design_Time_Addresses/Employee/?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,85 @@
+﻿@model MAPMA_WebClient.EmpRef.Employee
+
+@{
+    ViewBag.Title = "GetEmployee";
+}
+
+<h2>GetEmployee</h2>
+<form method="post" action="@Url.Action("GetEmployee")">
+    Medarbejder nr:<input type="text" name="id" />
+    <input class="Button" type="submit" value="find" />
+</form>
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.region)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.region)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zipcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zipcode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { @*id = Model.employeeID*@ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

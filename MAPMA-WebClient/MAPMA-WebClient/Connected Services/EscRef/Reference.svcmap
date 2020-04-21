@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4afd0396-cbd2-4808-933e-e17bc7cfb637" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8735/Design_Time_Addresses/Escaperoom/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EscapeRoom_Services.wsdl" MetadataType="Wsdl" ID="1543ba34-e5d0-43f4-8a5d-cd195c276990" SourceId="1" SourceUrl="http://localhost:8735/Design_Time_Addresses/Escaperoom/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="11205716-1b1d-4a0b-b1e0-ad45e1183223" SourceId="1" SourceUrl="http://localhost:8735/Design_Time_Addresses/Escaperoom/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="56487ad1-bff8-44be-b464-925ab2f50810" SourceId="1" SourceUrl="http://localhost:8735/Design_Time_Addresses/Escaperoom/?xsd=xsd0" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="3e825de0-1aec-47b4-b3cb-8abeacfac3d7" SourceId="1" SourceUrl="http://localhost:8735/Design_Time_Addresses/Escaperoom/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="5fcaff83-6299-42ce-8da3-1de3dead5627" SourceId="1" SourceUrl="http://localhost:8735/Design_Time_Addresses/Escaperoom/?xsd=xsd3" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="6fc61613-a7e5-4672-9961-e329bd96b789" SourceId="1" SourceUrl="http://localhost:8735/Design_Time_Addresses/Escaperoom/?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

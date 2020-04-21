@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0b94ee4e-892c-4d30-aaca-cf1c2d1c28ad" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Booking/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.wsdl" MetadataType="Wsdl" ID="3f4056a9-59b3-4932-9f92-5f821af7b1f4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Booking/?wsdl=wsdl0" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="c221ef14-d3fa-43d3-a741-15acac3870b1" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Booking/?xsd=xsd1" />
+    <MetadataFile FileName="BookingServices.wsdl" MetadataType="Wsdl" ID="32da925c-e3e8-4568-9d4f-3f0197b5b753" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Booking/?wsdl" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="4c70da36-2149-4d24-9b33-9bcb41dddbe4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Booking/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="1e57f3b2-b241-47c7-9ada-aa00ee08a37f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Booking/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="2f6275eb-e0d8-40aa-8b82-6fc8c75a64d1" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Booking/?xsd=xsd3" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="62640e70-05f2-4109-b3fb-48f147a620fd" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Booking/?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ModelLayer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ModelLayer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8735/Design_Time_Addresses/Escaperoom/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="EscapeRoom">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="checkList" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="cleanTime" type="xs:decimal" />
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="emp" nillable="true" type="tns:Employee" />
+      <xs:element minOccurs="0" name="escapeRoomID" type="xs:int" />
+      <xs:element minOccurs="0" name="maxClearTime" type="xs:decimal" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="rating" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EscapeRoom" nillable="true" type="tns:EscapeRoom" />
+  <xs:complexType name="Employee">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Person">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cityName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="employeeID" type="xs:int" />
+          <xs:element minOccurs="0" name="region" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="zipcode" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Employee" nillable="true" type="tns:Employee" />
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Person" nillable="true" type="tns:Person" />
+  <xs:complexType name="ArrayOfEscapeRoom">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EscapeRoom" nillable="true" type="tns:EscapeRoom" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEscapeRoom" nillable="true" type="tns:ArrayOfEscapeRoom" />
+</xs:schema>

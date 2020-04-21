@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://localhost:8735/Design_Time_Addresses/Escaperoom/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EscapeRoom_Services" targetNamespace="http://localhost:8735/Design_Time_Addresses/Escaperoom/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://localhost:8735/Design_Time_Addresses/Escaperoom/Imports">
+      <xsd:import schemaLocation="http://localhost:8735/Design_Time_Addresses/Escaperoom/?xsd=xsd0" namespace="http://localhost:8735/Design_Time_Addresses/Escaperoom/" />
+      <xsd:import schemaLocation="http://localhost:8735/Design_Time_Addresses/Escaperoom/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8735/Design_Time_Addresses/Escaperoom/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ModelLayer" />
+      <xsd:import schemaLocation="http://localhost:8735/Design_Time_Addresses/Escaperoom/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEscapeRoom_Services_GetForOwner_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetForOwner" />
+  </wsdl:message>
+  <wsdl:message name="IEscapeRoom_Services_GetForOwner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetForOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEscapeRoom_Services_GetAllForOwner_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllForOwner" />
+  </wsdl:message>
+  <wsdl:message name="IEscapeRoom_Services_GetAllForOwner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllForOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEscapeRoom_Services_CreateEscapeRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEscapeRoom" />
+  </wsdl:message>
+  <wsdl:message name="IEscapeRoom_Services_CreateEscapeRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEscapeRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEscapeRoom_Services_DeleteEscapeRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEscapeRoom" />
+  </wsdl:message>
+  <wsdl:message name="IEscapeRoom_Services_DeleteEscapeRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEscapeRoomResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEscapeRoom_Services">
+    <wsdl:operation name="GetForOwner">
+      <wsdl:input wsaw:Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/GetForOwner" message="tns:IEscapeRoom_Services_GetForOwner_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/GetForOwnerResponse" message="tns:IEscapeRoom_Services_GetForOwner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllForOwner">
+      <wsdl:input wsaw:Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/GetAllForOwner" message="tns:IEscapeRoom_Services_GetAllForOwner_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/GetAllForOwnerResponse" message="tns:IEscapeRoom_Services_GetAllForOwner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEscapeRoom">
+      <wsdl:input wsaw:Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/CreateEscapeRoom" message="tns:IEscapeRoom_Services_CreateEscapeRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/CreateEscapeRoomResponse" message="tns:IEscapeRoom_Services_CreateEscapeRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEscapeRoom">
+      <wsdl:input wsaw:Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/DeleteEscapeRoom" message="tns:IEscapeRoom_Services_DeleteEscapeRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/DeleteEscapeRoomResponse" message="tns:IEscapeRoom_Services_DeleteEscapeRoom_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEscapeRoom_Services" type="tns:IEscapeRoom_Services">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetForOwner">
+      <soap:operation soapAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/GetForOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllForOwner">
+      <soap:operation soapAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/GetAllForOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEscapeRoom">
+      <soap:operation soapAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/CreateEscapeRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEscapeRoom">
+      <soap:operation soapAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/DeleteEscapeRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EscapeRoom_Services">
+    <wsdl:port name="BasicHttpBinding_IEscapeRoom_Services" binding="tns:BasicHttpBinding_IEscapeRoom_Services">
+      <soap:address location="http://localhost:8735/Design_Time_Addresses/Escaperoom/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
