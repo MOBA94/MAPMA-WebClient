@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MAPMA_WebClient.ServiceLayer;
 
 namespace MAPMA_WebClient.Controllers
 {
@@ -19,17 +20,17 @@ namespace MAPMA_WebClient.Controllers
         public ActionResult GetEscapeRoom ( int id )
         {
 
-            IEscapeRoom_Services ecss = new EscapeRoom_ServicesClient();
-            EscapeRoom escr = ecss.GetForOwner(id);
+            EscapeRoomService ecss = new EscapeRoomService();
+            EscapeRoom escr = ecss.GetEscapeRoom(id);
             return View(escr);
         }
 
         public ActionResult GetAllEscapeRoom ( )
         {
-            IEscapeRoom_Services ecss = new EscapeRoom_ServicesClient();
+            EscapeRoomService ecss = new EscapeRoomService();
 
             //EscapeRoom[] escapeRooms;
-            List<EscapeRoom> escapeRooms = ecss.GetAllForOwner();
+            List<EscapeRoom> escapeRooms = ecss.GetAllEscapeRooms();
             ViewBag.List = escapeRooms;
             return View();
         }

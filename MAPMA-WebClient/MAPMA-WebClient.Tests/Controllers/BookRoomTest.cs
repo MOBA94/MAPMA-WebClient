@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MAPMA_WebClient.Controllers;
+using MAPMA_WebClient.ServiceLayer;
 using MAPMA_WebClient.BookRef;
 
 namespace MAPMA_WebClient.Tests.Controllers
@@ -12,40 +12,64 @@ namespace MAPMA_WebClient.Tests.Controllers
         public void CreateNewBookingTest ( )
         {
             //Arrange
-            BookingController bc = new BookingController();
-            CustomerController cc = new CustomerController();
-            EscapeRoomController ec = new EscapeRoomController();
-            EmployeeController emc = new EmployeeController();
-            
-           var cus = new Customer();           
-            cus.username = "Anorak";
-            Employee em = new Employee();
-            em.employeeID = 1;
-            EscapeRoom er = new EscapeRoom();
-            er.escapeRoomID = 1;
+            BookingService bs = new BookingService();
+            CustomerService cs = new CustomerService();
+            EscapeRoomService es = new EscapeRoomService();
+            EmployeeService ems = new EmployeeService();
+
+            MAPMA_WebClient.CusRef.Customer cus = cs.GetCustomer("Anorak");
+            MAPMA_WebClient.EmpRef.Employee em = ems.GetEmployee(1);
+            MAPMA_WebClient.EscRef.EscapeRoom er = es.GetEscapeRoom(1);
+            Customer customer = new Customer() {
+                customerNo = cus.customerNo,
+                firstName = cus.firstName,
+                lastName = cus.lastName,
+                mail = cus.mail,
+                password = cus.password,
+                phone = cus.phone,
+                username = cus.username
+            };
+            Employee employee = new Employee() {
+                address = em.address,
+                cityName = em.cityName,
+                employeeID = em.employeeID,
+                firstName = em.firstName,
+                lastName = em.lastName,
+                mail = em.mail,
+                phone = em.phone,
+                region = em.region,
+                zipcode = em.zipcode
+            };
+            EscapeRoom escapeRoom = new EscapeRoom() {
+                cleanTime = er.cleanTime,
+                description = er.description,
+                escapeRoomID = er.escapeRoomID,
+                maxClearTime = er.maxClearTime,
+                name = er.name,
+                price = er.price,
+                rating = er.rating
+            };
             Booking hostBook;
             Booking book = new Booking() {
                 amountOfPeople = 22,
                 bookingTime = DateTime.Now,
-                cus = cus,
+                cus = customer,
                 date = DateTime.Now.AddDays(7.0).Date,
-                emp = em,
-                er = er
-                
-
+                emp = employee,
+                er = escapeRoom
             };
 
 
             //Act
-            bc.CreateBooking(book.emp.employeeID, book.cus.username, book.er.escapeRoomID, book.bookingTime, book.amountOfPeople, book.date);
-            hostBook = bc.get(cus, er, book.date);
+            bs.CreateBooking(book.emp.employeeID, book.cus.username, book.er.escapeRoomID, book.bookingTime, book.amountOfPeople, book.date);
+            hostBook = bs.GetBooking(book.er.escapeRoomID, book.cus.username, book.date);
 
             //Assert
             Assert.AreEqual(book.date, hostBook.date);
             Assert.AreEqual(book.emp.employeeID, hostBook.emp.employeeID);
             Assert.AreEqual(book.cus.username, hostBook.cus.username);
 
-            bc.Delete(cus, er, book.date, book.emp, book.amountOfPeople, book.bookingTime);
+            bs.DeleteBooking(book.emp.employeeID, book.cus.username, book.er.escapeRoomID, book.bookingTime, book.amountOfPeople, book.date );
         }
 
         [TestMethod]

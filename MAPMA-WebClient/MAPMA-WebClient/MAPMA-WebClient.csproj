@@ -203,6 +203,10 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceLayer\BookingService.cs" />
+    <Compile Include="ServiceLayer\CustomerService.cs" />
+    <Compile Include="ServiceLayer\EmployeeService.cs" />
+    <Compile Include="ServiceLayer\EscapeRoomService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

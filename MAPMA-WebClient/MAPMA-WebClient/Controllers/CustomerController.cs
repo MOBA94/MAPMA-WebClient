@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MAPMA_WebClient.CusRef;
+using MAPMA_WebClient.ServiceLayer;
 
 namespace MAPMA_WebClient.Controllers
 {
@@ -17,8 +18,8 @@ namespace MAPMA_WebClient.Controllers
         [HttpPost]
         public ActionResult GetCustomer(string Username) 
         {
-            ICustomerServices cs = new CustomerServicesClient();
-            Customer cus = cs.Get(Username); 
+            CustomerService cs = new CustomerService();
+            Customer cus = cs.GetCustomer(Username); 
             return View(cus);
         }
         
