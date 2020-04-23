@@ -52,7 +52,7 @@ namespace MAPMA_WebClient.Tests.Controllers
             Booking hostBook;
             Booking book = new Booking() {
                 amountOfPeople = 22,
-                bookingTime = DateTime.Now,
+                bookingTime = DateTime.Now.TimeOfDay,
                 cus = customer,
                 date = DateTime.Now.AddDays(7.0).Date,
                 emp = employee,

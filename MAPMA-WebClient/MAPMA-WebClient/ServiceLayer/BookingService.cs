@@ -13,13 +13,13 @@ namespace MAPMA_WebClient.ServiceLayer
         
         }
 
-        public void CreateBooking(int EmployeeID, string username, int escapeRoomID, DateTime BookTime, int AmountOfPeople, DateTime BDate) {
+        public void CreateBooking(int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate) {
             IBookingServices Service = new BookingServicesClient();
 
             Service.Create(EmployeeID, username, escapeRoomID, BookTime, AmountOfPeople, BDate);
         }
 
-        public void DeleteBooking(int EmployeeID, string username, int escapeRoomID, DateTime BookTime, int AmountOfPeople, DateTime BDate) {
+        public void DeleteBooking(int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate) {
             IBookingServices Service = new BookingServicesClient();
 
             Service.Delete(EmployeeID, username, escapeRoomID, BookTime, AmountOfPeople, BDate); 
@@ -37,6 +37,13 @@ namespace MAPMA_WebClient.ServiceLayer
                 Console.ReadLine();
                 return null;
             }
+        }
+
+        public List<Booking> GetAllBookings() {
+            IBookingServices Service = new BookingServicesClient();
+
+            return Service.GetAll();
+
         }
     }
 }

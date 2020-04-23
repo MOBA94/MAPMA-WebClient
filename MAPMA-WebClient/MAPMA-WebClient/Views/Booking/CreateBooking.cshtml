@@ -10,18 +10,18 @@
     Brugernavn : <input type="text" name="username" /><br /><br />
     Escaperoom Id: <input type="text" name="escapeRoomID" /><br /><br />
     tid :<input type="datetime-local" name="BookTime" /><br /><br />
+    <select id="timeDropdownlist"></select>
     Antal personer: <input type="text" name="AmountOfPeople" /><br /><br />
     Dato og tid : <input type="datetime-local" name="BDate" /><br /><br />
     <input class="Button" type="submit" value="find" />
 </form>
-    
-    
-    
 
-@using (Html.BeginForm()) 
+
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>BookingServicesClient</h4>
         <hr />
@@ -40,4 +40,7 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bookingtime.js"></script>
 }

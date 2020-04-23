@@ -26,7 +26,7 @@ namespace MAPMA_WebClient.BookRef {
         private int amountOfPeopleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime bookingTimeField;
+        private System.TimeSpan bookingTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private MAPMA_WebClient.BookRef.Customer cusField;
@@ -64,7 +64,7 @@ namespace MAPMA_WebClient.BookRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime bookingTime {
+        public System.TimeSpan bookingTime {
             get {
                 return this.bookingTimeField;
             }
@@ -290,7 +290,7 @@ namespace MAPMA_WebClient.BookRef {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] checkListField;
+        private System.Collections.Generic.List<string> checkListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal cleanTimeField;
@@ -327,7 +327,7 @@ namespace MAPMA_WebClient.BookRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] checkList {
+        public System.Collections.Generic.List<string> checkList {
             get {
                 return this.checkListField;
             }
@@ -554,11 +554,11 @@ namespace MAPMA_WebClient.BookRef {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Create", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/CreateRespon" +
             "se")]
-        void Create(int EmpID, string username, int ER_ID, System.DateTime bookTime, int AOP, System.DateTime Bdate);
+        void Create(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Create", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/CreateRespon" +
             "se")]
-        System.Threading.Tasks.Task CreateAsync(int EmpID, string username, int ER_ID, System.DateTime bookTime, int AOP, System.DateTime Bdate);
+        System.Threading.Tasks.Task CreateAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Get", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetResponse")]
         MAPMA_WebClient.BookRef.Booking Get(int EscID, string username, System.DateTime Bdate);
@@ -566,13 +566,21 @@ namespace MAPMA_WebClient.BookRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Get", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetResponse")]
         System.Threading.Tasks.Task<MAPMA_WebClient.BookRef.Booking> GetAsync(int EscID, string username, System.DateTime Bdate);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Delete", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/DeleteRespon" +
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAll", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAllRespon" +
             "se")]
-        void Delete(int EmpID, string username, int ER_ID, System.DateTime bookTime, int AOP, System.DateTime Bdate);
+        System.Collections.Generic.List<MAPMA_WebClient.BookRef.Booking> GetAll();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAll", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAllRespon" +
+            "se")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MAPMA_WebClient.BookRef.Booking>> GetAllAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Delete", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/DeleteRespon" +
             "se")]
-        System.Threading.Tasks.Task DeleteAsync(int EmpID, string username, int ER_ID, System.DateTime bookTime, int AOP, System.DateTime Bdate);
+        void Delete(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Delete", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/DeleteRespon" +
+            "se")]
+        System.Threading.Tasks.Task DeleteAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -602,11 +610,11 @@ namespace MAPMA_WebClient.BookRef {
                 base(binding, remoteAddress) {
         }
         
-        public void Create(int EmpID, string username, int ER_ID, System.DateTime bookTime, int AOP, System.DateTime Bdate) {
+        public void Create(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate) {
             base.Channel.Create(EmpID, username, ER_ID, bookTime, AOP, Bdate);
         }
         
-        public System.Threading.Tasks.Task CreateAsync(int EmpID, string username, int ER_ID, System.DateTime bookTime, int AOP, System.DateTime Bdate) {
+        public System.Threading.Tasks.Task CreateAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate) {
             return base.Channel.CreateAsync(EmpID, username, ER_ID, bookTime, AOP, Bdate);
         }
         
@@ -618,11 +626,19 @@ namespace MAPMA_WebClient.BookRef {
             return base.Channel.GetAsync(EscID, username, Bdate);
         }
         
-        public void Delete(int EmpID, string username, int ER_ID, System.DateTime bookTime, int AOP, System.DateTime Bdate) {
+        public System.Collections.Generic.List<MAPMA_WebClient.BookRef.Booking> GetAll() {
+            return base.Channel.GetAll();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MAPMA_WebClient.BookRef.Booking>> GetAllAsync() {
+            return base.Channel.GetAllAsync();
+        }
+        
+        public void Delete(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate) {
             base.Channel.Delete(EmpID, username, ER_ID, bookTime, AOP, Bdate);
         }
         
-        public System.Threading.Tasks.Task DeleteAsync(int EmpID, string username, int ER_ID, System.DateTime bookTime, int AOP, System.DateTime Bdate) {
+        public System.Threading.Tasks.Task DeleteAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate) {
             return base.Channel.DeleteAsync(EmpID, username, ER_ID, bookTime, AOP, Bdate);
         }
     }

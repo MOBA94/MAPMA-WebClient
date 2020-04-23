@@ -16,7 +16,7 @@ namespace MAPMA_WebClient.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateBooking (int EmployeeID, string username, int escapeRoomID, DateTime BookTime, int AmountOfPeople, DateTime BDate)
+        public ActionResult CreateBooking (int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate)
         {
             BookingService bs = new BookingService();
             bs.CreateBooking(EmployeeID, username, escapeRoomID, BookTime, AmountOfPeople, BDate);
@@ -32,10 +32,17 @@ namespace MAPMA_WebClient.Controllers
         }
 
         [HttpPost]
-        public ActionResult DeleteBooking (int EmployeeID, string username, int escapeRoomID, DateTime BookTime, int AmountOfPeople, DateTime BDate)
+        public ActionResult DeleteBooking (int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate)
         {
             BookingService bs = new BookingService();
             bs.DeleteBooking(EmployeeID, username, escapeRoomID, BookTime, AmountOfPeople, BDate);
+            return View();
+        }
+
+        public ActionResult GetAllBookings() {
+            BookingService bs = new BookingService();
+           List<Booking> books =  bs.GetAllBookings();
+            ViewBag.List = books;
             return View();
         }
 
