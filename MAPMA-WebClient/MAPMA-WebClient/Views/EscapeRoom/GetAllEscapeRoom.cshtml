@@ -53,7 +53,7 @@
             @item.rating
         </td>
         <td>
-            @Html.ActionLink("Book", "CreateBooking", "Booking", new {EscapeRoom =  item }, new { @class = "BookingController"})
+            @Html.ActionLink("Book", "CreateBooking", new {id =  item.escapeRoomID })
             @Html.ActionLink("Details", "Details", new { id=item.escapeRoomID })
         </td>
     </tr>
