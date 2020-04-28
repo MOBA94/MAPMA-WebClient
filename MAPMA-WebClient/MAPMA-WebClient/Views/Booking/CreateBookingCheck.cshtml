@@ -1,0 +1,24 @@
+﻿@model MAPMA_WebClient.ServiceLayer.BookingService
+
+@{
+    ViewBag.Title = "CreateBookingCheck";
+}
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<h2>CreateBookingCheck</h2>
+
+
+
+
+<form method="post" action="@Url.Action("CreateBookingDone")">
+    Medarbejder nr:<input class="epmid" type="text" name="EmployeeID" /><br /><br />
+    Brugernavn : <input type="text" name="username" /><br /><br />
+    Escaperoom Id: <input type="text" name="escapeRoomID" value="@ViewBag.EscapeRoom.escapeRoomID" readonly /><br /><br />
+    <select data-bind="TimeSpan" name="BookTime">
+        @foreach (TimeSpan item in ViewBag.freetimes) {
+            <option value="@item">@item</option>
+        }
+    </select><br /><br />
+    Dato og tid : <input type="date" name="BDate" /><br /><br />
+    Antal personer: <input type="text" name="AmountOfPeople" /><br /><br />
+    <input class="Button" type="submit" value="book rum" />
+</form>

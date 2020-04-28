@@ -426,6 +426,16 @@ namespace MAPMA_WebClient.EscRef {
             "eEscapeRoom", ReplyAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/Delet" +
             "eEscapeRoomResponse")]
         System.Threading.Tasks.Task DeleteEscapeRoomAsync(int ER_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/FreeT" +
+            "imes", ReplyAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/FreeT" +
+            "imesResponse")]
+        System.Collections.Generic.List<System.TimeSpan> FreeTimes(int ER_ID, System.DateTime Bdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/FreeT" +
+            "imes", ReplyAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/FreeT" +
+            "imesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<System.TimeSpan>> FreeTimesAsync(int ER_ID, System.DateTime Bdate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -485,6 +495,14 @@ namespace MAPMA_WebClient.EscRef {
         
         public System.Threading.Tasks.Task DeleteEscapeRoomAsync(int ER_ID) {
             return base.Channel.DeleteEscapeRoomAsync(ER_ID);
+        }
+        
+        public System.Collections.Generic.List<System.TimeSpan> FreeTimes(int ER_ID, System.DateTime Bdate) {
+            return base.Channel.FreeTimes(ER_ID, Bdate);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<System.TimeSpan>> FreeTimesAsync(int ER_ID, System.DateTime Bdate) {
+            return base.Channel.FreeTimesAsync(ER_ID, Bdate);
         }
     }
 }

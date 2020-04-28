@@ -19,8 +19,18 @@ namespace MAPMA_WebClient.Controllers
             return View();
         }
 
+        
+        public ActionResult CreateBookingCheck(int id, DateTime BDate) {
+            EscapeRoomService escs = new EscapeRoomService();
+            EscRef.EscapeRoom es = escs.GetEscapeRoom(id);
+            List<TimeSpan> freetime = escs.FreeTimes(id, BDate);
+            ViewBag.freetimes = freetime;
+
+            return View();
+        }
+
         [HttpPost]
-        public ActionResult CreateBooking (int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate)
+        public ActionResult CreateBooking(int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate)
         {
             BookingService bs = new BookingService();
             bs.CreateBooking(EmployeeID, username, escapeRoomID, BookTime, AmountOfPeople, BDate);

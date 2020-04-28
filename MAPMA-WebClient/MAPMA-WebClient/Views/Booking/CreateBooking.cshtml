@@ -1,20 +1,30 @@
 ﻿@model MAPMA_WebClient.BookRef.BookingServicesClient
-
-
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        function Checkdate() {
+            var d = document.getElementById("date").value;
+            var esid = document.getElementById("escid").value;
+            document.getElementById("da").innerHTML = d;
+            
+        };
+        
+    </script>
 
 <h2>CreateBooking</h2>
 
 <form method="post" action="@Url.Action("CreateBooking")">
     Medarbejder nr:<input type="text" name="EmployeeID" /><br /><br />
     Brugernavn : <input type="text" name="username" /><br /><br />
-    Escaperoom Id: <input type="text" name="escapeRoomID" value="@ViewBag.EscapeRoom.escapeRoomID" readonly /><br /><br />
+    Escaperoom Id: <input id="escid" type="text" name="escapeRoomID" value="@ViewBag.EscapeRoom.escapeRoomID" readonly /><br /><br />
     <select data-bind="TimeSpan" name="BookTime">
         @foreach (TimeSpan item in ViewBag.TimeList) {
             <option value="@item">@item</option>
-
         }
     </select><br /><br />
-    Dato og tid : <input type="date" name="BDate" /><br /><br />
+    Dato : <input id="date" type="date" name="BDate" onchange = "Checkdate()"   /><br /><br />
+       <p id="da"></p>
+               
+    
     Antal personer: <input type="text" name="AmountOfPeople" /><br /><br />
     <input class="Button" type="submit" value="book rum" />
 </form>

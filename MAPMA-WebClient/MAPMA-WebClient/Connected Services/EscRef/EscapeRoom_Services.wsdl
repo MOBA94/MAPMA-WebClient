@@ -32,6 +32,12 @@
   <wsdl:message name="IEscapeRoom_Services_DeleteEscapeRoom_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteEscapeRoomResponse" />
   </wsdl:message>
+  <wsdl:message name="IEscapeRoom_Services_FreeTimes_InputMessage">
+    <wsdl:part name="parameters" element="tns:FreeTimes" />
+  </wsdl:message>
+  <wsdl:message name="IEscapeRoom_Services_FreeTimes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FreeTimesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IEscapeRoom_Services">
     <wsdl:operation name="GetForOwner">
       <wsdl:input wsaw:Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/GetForOwner" message="tns:IEscapeRoom_Services_GetForOwner_InputMessage" />
@@ -48,6 +54,10 @@
     <wsdl:operation name="DeleteEscapeRoom">
       <wsdl:input wsaw:Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/DeleteEscapeRoom" message="tns:IEscapeRoom_Services_DeleteEscapeRoom_InputMessage" />
       <wsdl:output wsaw:Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/DeleteEscapeRoomResponse" message="tns:IEscapeRoom_Services_DeleteEscapeRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FreeTimes">
+      <wsdl:input wsaw:Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/FreeTimes" message="tns:IEscapeRoom_Services_FreeTimes_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/FreeTimesResponse" message="tns:IEscapeRoom_Services_FreeTimes_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IEscapeRoom_Services" type="tns:IEscapeRoom_Services">
@@ -81,6 +91,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteEscapeRoom">
       <soap:operation soapAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/DeleteEscapeRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FreeTimes">
+      <soap:operation soapAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/FreeTimes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
