@@ -290,6 +290,9 @@ namespace MAPMA_WebClient.BookRef {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<System.TimeSpan> AvalibleTimesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<string> checkListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -323,6 +326,19 @@ namespace MAPMA_WebClient.BookRef {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<System.TimeSpan> AvalibleTimes {
+            get {
+                return this.AvalibleTimesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AvalibleTimesField, value) != true)) {
+                    this.AvalibleTimesField = value;
+                    this.RaisePropertyChanged("AvalibleTimes");
+                }
             }
         }
         
