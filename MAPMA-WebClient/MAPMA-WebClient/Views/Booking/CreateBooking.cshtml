@@ -12,12 +12,12 @@
 
 <h2>CreateBooking</h2>
 <form action="@Url.Action("CreateBookingCheck")" method="post">
+    Escaperoom Id: <input id="escid" type="text" name="id" value="@ViewBag.EscapeRoom.escapeRoomID" readonly /><br /><br />
     Dato : <input id="date" type="date" name="BDate" onchange="Checkdate()" /><br /><br />
-    Escaperoom Id: <input id="escid" type="text" name="id" value="@ViewBag.EscapeRoom.escapeRoomID" readonly /><br /><br />   
     <input class="Button" type="submit" value="book rum" />
 </form>
 
-<form method="post" action="@Url.Action("CreateBooking")">
+@*<form method="post" action="@Url.Action("CreateBooking")">
     Medarbejder nr:<input type="text" name="EmployeeID" /><br /><br />
     Brugernavn : <input type="text" name="username" /><br /><br />
     Escaperoom Id: <input id="escid" type="text" name="escapeRoomID" value="@ViewBag.EscapeRoom.escapeRoomID" readonly /><br /><br />
@@ -32,10 +32,10 @@
     
     Antal personer: <input type="text" name="AmountOfPeople" /><br /><br />
     <input class="Button" type="submit" value="book rum" />
-</form>
+</form>*@
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "GetAllEscapeRoom", "EscapeRoom")
 </div>
 
 @section Scripts {

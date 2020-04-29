@@ -570,11 +570,11 @@ namespace MAPMA_WebClient.BookRef {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Create", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/CreateRespon" +
             "se")]
-        void Create(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate);
+        int Create(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Create", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/CreateRespon" +
             "se")]
-        System.Threading.Tasks.Task CreateAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate);
+        System.Threading.Tasks.Task<int> CreateAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Get", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetResponse")]
         MAPMA_WebClient.BookRef.Booking Get(int EscID, string username, System.DateTime Bdate);
@@ -626,11 +626,11 @@ namespace MAPMA_WebClient.BookRef {
                 base(binding, remoteAddress) {
         }
         
-        public void Create(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate) {
-            base.Channel.Create(EmpID, username, ER_ID, bookTime, AOP, Bdate);
+        public int Create(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate) {
+            return base.Channel.Create(EmpID, username, ER_ID, bookTime, AOP, Bdate);
         }
         
-        public System.Threading.Tasks.Task CreateAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate) {
+        public System.Threading.Tasks.Task<int> CreateAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate) {
             return base.Channel.CreateAsync(EmpID, username, ER_ID, bookTime, AOP, Bdate);
         }
         

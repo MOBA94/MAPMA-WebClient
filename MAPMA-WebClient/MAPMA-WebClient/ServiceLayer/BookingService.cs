@@ -13,10 +13,10 @@ namespace MAPMA_WebClient.ServiceLayer
         
         }
 
-        public void CreateBooking(int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate) {
+        public int CreateBooking(int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate) {
             IBookingServices Service = new BookingServicesClient();
 
-            Service.Create(EmployeeID, username, escapeRoomID, BookTime, AmountOfPeople, BDate);
+            return Service.Create(EmployeeID, username, escapeRoomID, BookTime, AmountOfPeople, BDate);
         }
 
         public void DeleteBooking(int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate) {
