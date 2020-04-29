@@ -9,17 +9,16 @@ using MAPMA_WebClient.ServiceLayer;
 namespace MAPMA_WebClient.Controllers
 {
     public class BookingController : Controller 
-    { 
-        public ActionResult CreateBooking(int id)
-        {
+    {
+        public ActionResult CreateBooking(int id) {
             EscapeRoomService escs = new EscapeRoomService();
-            var CurentEsc = ViewData["Escaperoom"];
-            CurentEsc = escs.GetEscapeRoom(id);
             EscRef.EscapeRoom es = escs.GetEscapeRoom(id);
-            ViewBag.EscapeRoom =  es;
+            ViewBag.TimeList = es.AvalibleTimes;
+            ViewBag.EscapeRoom = es;
+
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult CreateBooking (int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate)
         {
