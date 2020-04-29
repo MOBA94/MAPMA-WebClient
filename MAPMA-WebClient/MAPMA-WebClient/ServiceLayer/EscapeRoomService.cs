@@ -33,7 +33,7 @@ namespace MAPMA_WebClient.ServiceLayer {
         public List<TimeSpan> FreeTimes(int ER_ID, DateTime Bdate) {
             IEscapeRoom_Services escServ = new EscapeRoom_ServicesClient();
             Console.WriteLine(escServ.FreeTimes(ER_ID, Bdate).Count);
-            Console.ReadLine();
+           
             return escServ.FreeTimes(ER_ID,Bdate);
         }
 

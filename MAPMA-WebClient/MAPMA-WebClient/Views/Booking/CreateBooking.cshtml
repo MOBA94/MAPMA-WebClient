@@ -1,4 +1,4 @@
-﻿@model MAPMA_WebClient.BookRef.BookingServicesClient
+﻿@*@model MAPMA_WebClient.BookRef.BookingServicesClient*@
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script>
         function Checkdate() {
@@ -11,6 +11,11 @@
     </script>
 
 <h2>CreateBooking</h2>
+<form action="@Url.Action("CreateBookingCheck")" method="post">
+    Dato : <input id="date" type="date" name="BDate" onchange="Checkdate()" /><br /><br />
+    Escaperoom Id: <input id="escid" type="text" name="id" value="@ViewBag.EscapeRoom.escapeRoomID" readonly /><br /><br />   
+    <input class="Button" type="submit" value="book rum" />
+</form>
 
 <form method="post" action="@Url.Action("CreateBooking")">
     Medarbejder nr:<input type="text" name="EmployeeID" /><br /><br />
@@ -22,7 +27,7 @@
         }
     </select><br /><br />
     Dato : <input id="date" type="date" name="BDate" onchange = "Checkdate()"   /><br /><br />
-       <p id="da"></p>
+       <p  id="da"></p>
                
     
     Antal personer: <input type="text" name="AmountOfPeople" /><br /><br />

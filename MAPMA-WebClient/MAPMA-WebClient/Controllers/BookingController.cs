@@ -19,10 +19,11 @@ namespace MAPMA_WebClient.Controllers
             return View();
         }
 
-        
+        [HttpPost]
         public ActionResult CreateBookingCheck(int id, DateTime BDate) {
             EscapeRoomService escs = new EscapeRoomService();
             EscRef.EscapeRoom es = escs.GetEscapeRoom(id);
+            ViewBag.EscapeRoom = es;
             List<TimeSpan> freetime = escs.FreeTimes(id, BDate);
             ViewBag.freetimes = freetime;
 
