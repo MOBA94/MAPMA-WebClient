@@ -53,8 +53,12 @@ namespace MAPMA_WebClient.Controllers
             List<TimeSpan> freetime = escs.FreeTimes(escapeRoomID, BDate);
             ViewBag.freetimes = freetime;
             BookingService bs = new BookingService();
-            if(bs == 0)
-            bs.CreateBooking(EmployeeID, username, escapeRoomID, BookTime, AmountOfPeople, BDate);
+            
+            int c = bs.CreateBooking(EmployeeID, username, escapeRoomID, BookTime, AmountOfPeople, BDate);
+            if (c == 0) {
+                TempData["message"] = "Den tid du prøvede at booke er desværre blevet taget ";
+                return RedirectToAction("CreateBooking", new { id = escapeRoomID });
+            }
             return View();
         }
 
