@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+
+label.empid{
+    visibility:hidden;
+}
+input.empid{
+    visibility:hidden;
+}

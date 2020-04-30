@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://localhost:8735/Design_Time_Addresses/Escaperoom/" elementFormDefault="qualified" targetNamespace="http://localhost:8735/Design_Time_Addresses/Escaperoom/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8735/Design_Time_Addresses/Escaperoom/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ModelLayer" />
+  <xs:import schemaLocation="http://localhost:8735/Design_Time_Addresses/Escaperoom/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="GetForOwner">
     <xs:complexType>
       <xs:sequence>
@@ -55,6 +56,21 @@
   <xs:element name="DeleteEscapeRoomResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreeTimes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ER_ID" type="xs:int" />
+        <xs:element minOccurs="0" name="Bdate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreeTimesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FreeTimesResult" nillable="true" type="q3:ArrayOfduration" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

@@ -358,6 +358,8 @@
     <Content Include="Views\Employee\GetEmployee.cshtml" />
     <Content Include="Views\EscapeRoom\GetAllEscapeRoom.cshtml" />
     <Content Include="Views\Booking\CreateBooking.cshtml" />
+    <Content Include="Views\Booking\CreateBookingCheck.cshtml" />
+    <Content Include="Views\Booking\CreateBookingDone.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
