@@ -25,10 +25,18 @@ namespace MAPMA_WebClient.Controllers
             EscRef.EscapeRoom es = escs.GetEscapeRoom(id);
             ViewBag.EscapeRoom = es;
             List<TimeSpan> freetime = escs.FreeTimes(id, BDate);
-            if (freetime.Count == 0) {
-
+            if (BDate == null)
+            {
+                TempData["message"] = "Der er ikke valgt en dato";
+                return RedirectToAction("CreateBooking", new { id = id });
             }
-            else {
+            else if (freetime.Count == 0)
+            {
+                TempData["message"] = "Der ingen tilgængelige booking tider";
+                return RedirectToAction("CreateBooking", new { id = id });
+            }
+            else
+            {
                 ViewBag.freetimes = freetime;
                 ViewBag.ChosenDate = BDate;
             }
@@ -37,7 +45,7 @@ namespace MAPMA_WebClient.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateBooking(int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate)
+        public ActionResult CreateBookingDone(int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate)
         {
             EscapeRoomService escs = new EscapeRoomService();
             EscRef.EscapeRoom es = escs.GetEscapeRoom(escapeRoomID);
@@ -45,6 +53,7 @@ namespace MAPMA_WebClient.Controllers
             List<TimeSpan> freetime = escs.FreeTimes(escapeRoomID, BDate);
             ViewBag.freetimes = freetime;
             BookingService bs = new BookingService();
+            if(bs == 0)
             bs.CreateBooking(EmployeeID, username, escapeRoomID, BookTime, AmountOfPeople, BDate);
             return View();
         }

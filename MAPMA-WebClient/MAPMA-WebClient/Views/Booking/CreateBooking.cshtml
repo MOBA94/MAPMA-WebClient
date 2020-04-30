@@ -2,10 +2,19 @@
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script>
         function Checkdate() {
-            var d = document.getElementById("date").value;
-            var esid = document.getElementById("escid").value;
-            document.getElementById("da").innerHTML = d;
-            
+          var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("date").setAttribute("min", today);      
         };
         
     </script>
@@ -13,8 +22,9 @@
 <h2>CreateBooking</h2>
 <form action="@Url.Action("CreateBookingCheck")" method="post">
     Escaperoom Id: <input id="escid" type="text" name="id" value="@ViewBag.EscapeRoom.escapeRoomID" readonly /><br /><br />
-    Dato : <input id="date" type="date" name="BDate" onchange="Checkdate()" /><br /><br />
-    <input class="Button" type="submit" value="book rum" />
+    Dato : <input id="date" type="date" name="BDate" min="2020-01-01" required /><br /><br />
+     <p id="da">@TempData["message"]</p>
+    <input class="Button" type="submit" value="book rum" onclick="Checkdate()" />
 </form>
 
 @*<form method="post" action="@Url.Action("CreateBooking")">
