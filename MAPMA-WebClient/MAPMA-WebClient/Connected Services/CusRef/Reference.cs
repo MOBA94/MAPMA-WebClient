@@ -120,6 +120,9 @@ namespace MAPMA_WebClient.CusRef {
         private string passwordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string saltField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string usernameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -149,6 +152,19 @@ namespace MAPMA_WebClient.CusRef {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string salt {
+            get {
+                return this.saltField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.saltField, value) != true)) {
+                    this.saltField = value;
+                    this.RaisePropertyChanged("salt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string username {
             get {
                 return this.usernameField;
@@ -173,6 +189,22 @@ namespace MAPMA_WebClient.CusRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/Get", ReplyAction="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/GetRespons" +
             "e")]
         System.Threading.Tasks.Task<MAPMA_WebClient.CusRef.Customer> GetAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/Register", ReplyAction="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/RegisterRe" +
+            "sponse")]
+        void Register(MAPMA_WebClient.CusRef.Customer cus, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/Register", ReplyAction="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/RegisterRe" +
+            "sponse")]
+        System.Threading.Tasks.Task RegisterAsync(MAPMA_WebClient.CusRef.Customer cus, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/Login", ReplyAction="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/LoginRespo" +
+            "nse")]
+        MAPMA_WebClient.CusRef.Customer Login(string inputPassword, string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/Login", ReplyAction="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/LoginRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<MAPMA_WebClient.CusRef.Customer> LoginAsync(string inputPassword, string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -208,6 +240,22 @@ namespace MAPMA_WebClient.CusRef {
         
         public System.Threading.Tasks.Task<MAPMA_WebClient.CusRef.Customer> GetAsync(string username) {
             return base.Channel.GetAsync(username);
+        }
+        
+        public void Register(MAPMA_WebClient.CusRef.Customer cus, string password) {
+            base.Channel.Register(cus, password);
+        }
+        
+        public System.Threading.Tasks.Task RegisterAsync(MAPMA_WebClient.CusRef.Customer cus, string password) {
+            return base.Channel.RegisterAsync(cus, password);
+        }
+        
+        public MAPMA_WebClient.CusRef.Customer Login(string inputPassword, string username) {
+            return base.Channel.Login(inputPassword, username);
+        }
+        
+        public System.Threading.Tasks.Task<MAPMA_WebClient.CusRef.Customer> LoginAsync(string inputPassword, string username) {
+            return base.Channel.LoginAsync(inputPassword, username);
         }
     }
 }

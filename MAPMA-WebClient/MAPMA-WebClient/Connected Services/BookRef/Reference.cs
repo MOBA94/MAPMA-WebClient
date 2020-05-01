@@ -151,6 +151,9 @@ namespace MAPMA_WebClient.BookRef {
         private string passwordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string saltField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string usernameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -175,6 +178,19 @@ namespace MAPMA_WebClient.BookRef {
                 if ((object.ReferenceEquals(this.passwordField, value) != true)) {
                     this.passwordField = value;
                     this.RaisePropertyChanged("password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string salt {
+            get {
+                return this.saltField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.saltField, value) != true)) {
+                    this.saltField = value;
+                    this.RaisePropertyChanged("salt");
                 }
             }
         }

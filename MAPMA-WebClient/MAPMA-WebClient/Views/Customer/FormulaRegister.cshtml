@@ -1,0 +1,30 @@
+﻿@model MAPMA_WebClient.CusRef.Customer
+
+@{
+    ViewBag.Title = "FormulaRegister";
+}
+
+<h2>Opret bruger</h2>
+
+
+    
+   
+        <h4>Customer</h4>
+        
+        <form method="post" action="@Url.Action("Register")">
+            <label class="epmid">Fornavn :</label> <input  class="epmid" type="text" name="Firstname" /><br /><br />
+            <label class="Register">Efternavn :</label> <input type="text" name="Lastname" /><br /><br />
+            <label class="Register">Mail :</label><input type="text" name="Mail" /><br /><br />
+            <label class="Register">TLF.nr : </label><input type="text" name="Phone" /><br /><br />
+            <label class="Booking">Username:</label>  <input type="text" name="Username"  /><br /><br />
+            <label class="Booking">Password:</label>  <input type="text" name="Password"  /><br /><br />
+            <input class="Button" type="submit" value="Opret som Bruger" />
+        </form>
+        
+    
+        
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -360,6 +360,9 @@
     <Content Include="Views\Booking\CreateBooking.cshtml" />
     <Content Include="Views\Booking\CreateBookingCheck.cshtml" />
     <Content Include="Views\Booking\CreateBookingDone.cshtml" />
+    <Content Include="Views\Customer\FormulaRegister.cshtml" />
+    <Content Include="Views\Customer\FormulaRegister2.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

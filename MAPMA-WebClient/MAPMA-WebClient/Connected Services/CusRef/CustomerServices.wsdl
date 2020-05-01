@@ -13,16 +13,54 @@
   <wsdl:message name="ICustomerServices_Get_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetResponse" />
   </wsdl:message>
+  <wsdl:message name="ICustomerServices_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerServices_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerServices_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerServices_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICustomerServices">
     <wsdl:operation name="Get">
       <wsdl:input wsaw:Action="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/Get" message="tns:ICustomerServices_Get_InputMessage" />
       <wsdl:output wsaw:Action="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/GetResponse" message="tns:ICustomerServices_Get_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/Register" message="tns:ICustomerServices_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/RegisterResponse" message="tns:ICustomerServices_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/Login" message="tns:ICustomerServices_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/LoginResponse" message="tns:ICustomerServices_Login_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICustomerServices" type="tns:ICustomerServices">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Get">
       <soap:operation soapAction="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://localhost:8737/Design_Time_Addresses/Customer/ICustomerServices/Login" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

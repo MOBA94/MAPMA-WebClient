@@ -18,11 +18,21 @@ namespace MAPMA_WebClient.ServiceLayer {
         }
         catch (NullReferenceException NE) {
             Console.WriteLine(NE);
-            Console.ReadLine();
             return null;
         }
+
+            
     }
+        public void Register(Customer cus, string password) {
+            ICustomerServices CusServ = new CustomerServicesClient();
+            CusServ.Register(cus, password);
+        }
 
+        public Customer Login(string inputPassword, string username )
+        {
+            ICustomerServices CusServ = new CustomerServicesClient();
+            return CusServ.Login(inputPassword, username);
+        }
 
-}
+    }
 }

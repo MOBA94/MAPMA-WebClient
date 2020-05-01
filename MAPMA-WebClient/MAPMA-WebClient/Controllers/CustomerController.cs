@@ -22,6 +22,43 @@ namespace MAPMA_WebClient.Controllers
             Customer cus = cs.GetCustomer(Username); 
             return View(cus);
         }
-        
+
+
+        public ActionResult FormulaRegister() {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(string Firstname, string Lastname,string Mail,string Phone,string Username, string Password) {
+            CustomerService cs = new CustomerService();
+            Customer cus = new Customer() {
+                firstName = Firstname,
+                lastName =  Lastname,
+                mail = Mail,
+                phone = Phone,
+                username = Username
+            };
+            cs.Register(cus, Password);
+            return View();
+
+        }
+
+        public ActionResult Login ( )
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult LoginComplet(string inputPassword, string username )
+        {
+            CustomerService cs = new CustomerService();
+            Customer cus = new Customer();
+            cs.Login(inputPassword, username);
+            return RedirectToAction("GetAllEscapeRoom", "EscapeRoom");
+        }
+
+
+
+
     }
 }

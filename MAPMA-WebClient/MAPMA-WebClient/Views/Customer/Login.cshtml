@@ -1,0 +1,22 @@
+﻿<script>function myFunction() {
+    var x = document.getElementById("myInput")
+    if (x.type === "password") {
+        x.type = "text";
+    }
+    else {
+        x.type = "password";
+    }
+}</script>
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<form action="@Url.Action("LoginComplet")" method="post">
+<label>Brugernavn</label> <input type="text" name="username"/> 
+<label>Adgangskode</label> <input id="myInput" type="password" name="inputPassword"/>
+<label>VisAdgangskode</label> <input type="checkbox" onclick="myFunction()"/>
+<input class="Button" type="submit" value="Login" />
+</form>
