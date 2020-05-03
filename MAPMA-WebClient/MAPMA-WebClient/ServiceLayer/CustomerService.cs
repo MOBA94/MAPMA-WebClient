@@ -23,9 +23,9 @@ namespace MAPMA_WebClient.ServiceLayer {
 
             
     }
-        public void Register(Customer cus, string password) {
+        public int Register(Customer cus, string password) {
             ICustomerServices CusServ = new CustomerServicesClient();
-            CusServ.Register(cus, password);
+           return CusServ.Register(cus, password);
         }
 
         public Customer Login(string inputPassword, string username )

@@ -29,18 +29,32 @@ namespace MAPMA_WebClient.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(string Firstname, string Lastname,string Mail,string Phone,string Username, string Password) {
+        public ActionResult Register ( string Firstname, string Lastname, string Mail, string Phone, string Username, string Password )
+        {
             CustomerService cs = new CustomerService();
-            Customer cus = new Customer() {
+            Customer cus = new Customer()
+            {
                 firstName = Firstname,
-                lastName =  Lastname,
+                lastName = Lastname,
                 mail = Mail,
                 phone = Phone,
                 username = Username
             };
-            cs.Register(cus, Password);
-            return View();
-
+            int i = cs.Register(cus, Password);
+            if (i == 1) { 
+            
+                return RedirectToAction("Login", "Customer");
+            }
+            else if (i== 0) {
+                TempData["message1"] = "dette brugernavn er i brug";
+                return RedirectToAction("FormulaRegister", "Customer");
+            }
+            else {
+                TempData["message2"] = "Der gik noget galt, prøv igen. Aberne er i gang med at løse det";
+                return RedirectToAction("FormulaRegister", "Customer");
+                
+            }
+            
         }
 
         public ActionResult Login ( )
