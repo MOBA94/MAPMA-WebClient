@@ -8,21 +8,15 @@ using MAPMA_WebClient.ServiceLayer;
 
 namespace MAPMA_WebClient.Controllers
 {
-    public class EscapeRoomController : Controller
-    {
-        public ActionResult GetEscapeRoom ( )
-        {
+    public class EscapeRoomController : Controller    {
 
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult GetEscapeRoom ( int id )
-        {
+        
+        public ActionResult GetEscapeRoom ( int id )        {
 
             EscapeRoomService ecss = new EscapeRoomService();
-            EscapeRoom escr = ecss.GetEscapeRoom(id);
-            return View(escr);
+            EscRef.EscapeRoom escr = ecss.GetEscapeRoom(id);
+            ViewBag.Escaperoom1 = escr;
+            return View();
         }
 
         public ActionResult GetAllEscapeRoom ( )
@@ -34,6 +28,7 @@ namespace MAPMA_WebClient.Controllers
             ViewBag.List = escapeRooms;
             return View();
         }
+       
 
     }
 }
