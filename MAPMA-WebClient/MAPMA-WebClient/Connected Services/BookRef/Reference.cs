@@ -309,6 +309,9 @@ namespace MAPMA_WebClient.BookRef {
         private System.Collections.Generic.List<System.TimeSpan> AvalibleTimesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<string> checkListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -354,6 +357,19 @@ namespace MAPMA_WebClient.BookRef {
                 if ((object.ReferenceEquals(this.AvalibleTimesField, value) != true)) {
                     this.AvalibleTimesField = value;
                     this.RaisePropertyChanged("AvalibleTimes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
                 }
             }
         }

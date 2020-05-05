@@ -1,21 +1,24 @@
 ﻿@model MAPMA_WebClient.EscRef.EscapeRoom
-    <style>
+<style>
 
-        textarea#description{
-            width:200px;
-            height: 200px;
-        }
-    </style>
+    textarea#description {
+        width: 200px;
+        height: 200px;
+    }
+</style>
 @{
     ViewBag.Title = "GetEscapeRoom";
 }
 
 <h2>GetEscapeRoom</h2>
 
-<textarea id="description">@ViewBag.EscapeRoom1.description</textarea> <br /><br />
+<textarea id="description">@ViewBag.EscapeRoom1.description</textarea>
+<br />
+<br />
+<img src="@Url.Action("PicShow","EscapeRoom", new {imgArray = ViewBag.EscapeRoom1.Image })" width="150" height="150" />
 
 
-    
-    @Html.ActionLink("Book", "CreateBooking", "Booking", new { id = ViewBag.EscapeRoom1.escapeRoomID }, new { @class = "BookingController" }) 
+
+@Html.ActionLink("Book", "CreateBooking", "Booking", new { id = ViewBag.EscapeRoom1.escapeRoomID }, new { @class = "BookingController" })
 
 

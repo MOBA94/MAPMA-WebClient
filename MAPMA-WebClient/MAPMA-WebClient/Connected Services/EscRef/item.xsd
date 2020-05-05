@@ -38,6 +38,7 @@
         <xs:element minOccurs="0" name="price" type="xs:decimal" />
         <xs:element minOccurs="0" name="rating" type="xs:decimal" />
         <xs:element minOccurs="0" name="empId" type="xs:int" />
+        <xs:element minOccurs="0" name="img" nillable="true" type="xs:base64Binary" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -26,6 +26,9 @@ namespace MAPMA_WebClient.EscRef {
         private System.Collections.Generic.List<System.TimeSpan> AvalibleTimesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<string> checkListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -71,6 +74,19 @@ namespace MAPMA_WebClient.EscRef {
                 if ((object.ReferenceEquals(this.AvalibleTimesField, value) != true)) {
                     this.AvalibleTimesField = value;
                     this.RaisePropertyChanged("AvalibleTimes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
                 }
             }
         }
@@ -410,12 +426,12 @@ namespace MAPMA_WebClient.EscRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/Creat" +
             "eEscapeRoom", ReplyAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/Creat" +
             "eEscapeRoomResponse")]
-        void CreateEscapeRoom(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId);
+        void CreateEscapeRoom(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId, byte[] img);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/Creat" +
             "eEscapeRoom", ReplyAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/Creat" +
             "eEscapeRoomResponse")]
-        System.Threading.Tasks.Task CreateEscapeRoomAsync(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId);
+        System.Threading.Tasks.Task CreateEscapeRoomAsync(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId, byte[] img);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/Delet" +
             "eEscapeRoom", ReplyAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/Delet" +
@@ -481,12 +497,12 @@ namespace MAPMA_WebClient.EscRef {
             return base.Channel.GetAllForOwnerAsync();
         }
         
-        public void CreateEscapeRoom(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId) {
-            base.Channel.CreateEscapeRoom(name, description, maxClearTime, cleanTime, price, rating, empId);
+        public void CreateEscapeRoom(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId, byte[] img) {
+            base.Channel.CreateEscapeRoom(name, description, maxClearTime, cleanTime, price, rating, empId, img);
         }
         
-        public System.Threading.Tasks.Task CreateEscapeRoomAsync(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId) {
-            return base.Channel.CreateEscapeRoomAsync(name, description, maxClearTime, cleanTime, price, rating, empId);
+        public System.Threading.Tasks.Task CreateEscapeRoomAsync(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId, byte[] img) {
+            return base.Channel.CreateEscapeRoomAsync(name, description, maxClearTime, cleanTime, price, rating, empId, img);
         }
         
         public void DeleteEscapeRoom(int ER_ID) {

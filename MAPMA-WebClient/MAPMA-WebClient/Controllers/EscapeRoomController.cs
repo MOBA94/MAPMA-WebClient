@@ -28,6 +28,11 @@ namespace MAPMA_WebClient.Controllers
             ViewBag.List = escapeRooms;
             return View();
         }
+
+        public FileContentResult PicShow(byte[] imgArray) {
+            
+            return new FileContentResult(imgArray, "image/jpg");
+        }
        
 
     }
