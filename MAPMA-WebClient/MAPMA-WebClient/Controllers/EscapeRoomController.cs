@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MAPMA_WebClient.ServiceLayer;
+using System.Drawing;
+using System.IO;
 
 namespace MAPMA_WebClient.Controllers
 {
@@ -29,11 +31,21 @@ namespace MAPMA_WebClient.Controllers
             return View();
         }
 
-        public FileContentResult PicShow(byte[] imgArray) {
-            
-            return new FileContentResult(imgArray, "image/jpg");
+        public Image PicShow(byte[] imgArray) {
+
+            return ByteArrayToImage(imgArray);
         }
-       
+
+        public Image ByteArrayToImage ( byte[] byteArrayIn )
+        {
+            using (var ms = new MemoryStream(byteArrayIn))
+            {
+                var returnImage = Image.FromStream(ms);
+
+                return returnImage;
+            }
+        }
+
 
     }
 }
