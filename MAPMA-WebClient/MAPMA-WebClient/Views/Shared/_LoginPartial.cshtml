@@ -18,8 +18,8 @@ else
 <ul class="nav navbar-nav navbar-right">
     @if (@Session["User"] != null) {
 
-        <li>@Html.ActionLink(@Request.Cookies["User"].Value, "FormulaRegister", "Customer")</li>
-        <li>@Html.ActionLink("Login", "Login", "Customer", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink(@Request.Cookies["User"].Value, "GetAllBookingFromUser", "Customer", new {username = @Request.Cookies["User"].Value },new { @class = "CustomerController" })</li>
+        <li>@Html.ActionLink("log ud", "Logout", "Customer") </li>
     }
     else {
 

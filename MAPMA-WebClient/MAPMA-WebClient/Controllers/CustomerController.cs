@@ -93,6 +93,11 @@ namespace MAPMA_WebClient.Controllers
             }
         }
 
+        public ActionResult Logout() {
+            Session.Clear();
+            return RedirectToAction("Login", "Customer");
+        }
+
 
 
 

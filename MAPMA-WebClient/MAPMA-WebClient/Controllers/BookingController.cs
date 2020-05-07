@@ -86,6 +86,13 @@ namespace MAPMA_WebClient.Controllers
             return View();
         }
 
+        public ActionResult DeleteBookingCustomer(string username, int escapeRoomID, TimeSpan BookTime, DateTime BDate) {
+            BookingService bs = new BookingService();
+            bs.DeleteBookingCustomer( username,  escapeRoomID,  BookTime, BDate);
+
+            return RedirectToAction("GetAllBookingFromUser", "Customer", new { username = @Request.Cookies["User"].Value });
+        }
+
         public ActionResult GetAllBookings() {
             BookingService bs = new BookingService();
            List<Booking> books =  bs.GetAllBookings();

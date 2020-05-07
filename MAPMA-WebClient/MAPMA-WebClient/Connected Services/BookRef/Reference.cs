@@ -663,6 +663,14 @@ namespace MAPMA_WebClient.BookRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Update", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/UpdateRespon" +
             "se")]
         System.Threading.Tasks.Task UpdateAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate, int bookId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Deleteweb", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/DeletewebRes" +
+            "ponse")]
+        void Deleteweb(string username, int ER_ID, System.TimeSpan bookTime, System.DateTime Bdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Deleteweb", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/DeletewebRes" +
+            "ponse")]
+        System.Threading.Tasks.Task DeletewebAsync(string username, int ER_ID, System.TimeSpan bookTime, System.DateTime Bdate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -738,6 +746,14 @@ namespace MAPMA_WebClient.BookRef {
         
         public System.Threading.Tasks.Task UpdateAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate, int bookId) {
             return base.Channel.UpdateAsync(EmpID, username, ER_ID, bookTime, AOP, Bdate, bookId);
+        }
+        
+        public void Deleteweb(string username, int ER_ID, System.TimeSpan bookTime, System.DateTime Bdate) {
+            base.Channel.Deleteweb(username, ER_ID, bookTime, Bdate);
+        }
+        
+        public System.Threading.Tasks.Task DeletewebAsync(string username, int ER_ID, System.TimeSpan bookTime, System.DateTime Bdate) {
+            return base.Channel.DeletewebAsync(username, ER_ID, bookTime, Bdate);
         }
     }
 }

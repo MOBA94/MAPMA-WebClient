@@ -20,9 +20,15 @@ namespace MAPMA_WebClient.ServiceLayer
         }
 
         public void DeleteBooking(int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate) {
-            IBookingServices Service = new BookingServicesClient();
+            IBookingServices Service = new BookingServicesClient();          
 
             Service.Delete(EmployeeID, username, escapeRoomID, BookTime, AmountOfPeople, BDate); 
+        }
+
+        public void DeleteBookingCustomer(string username, int escapeRoomID, TimeSpan BookTime, DateTime BDate) {
+            IBookingServices Service = new BookingServicesClient();
+
+            Service.Deleteweb(username, escapeRoomID, BookTime, BDate);
         }
 
         public Booking GetBooking(int escapeRoomID, string username, DateTime BDate) {

@@ -35,27 +35,30 @@
     @foreach (var item in ViewBag.Userbook) {
         <tr>
             <td>
-                @item.
+                @item.Id
             </td>
             <td>
-                @item.description
+                @item.er.name
             </td>
             <td>
-                @item.maxClearTime
+                @item.date
             </td>
             <td>
-                @item.name
+                @item.bookingTime
             </td>
             <td>
-                @item.price
+                @item.amountOfPeople
             </td>
+            
             <td>
-                @item.rating
-            </td>
-            <td>
-                @Html.ActionLink("Book", "CreateBooking", "Booking", new { id = item.escapeRoomID }, new { @class = "BookingController" }) |
-                @Html.ActionLink("Info", "GetEscapeRoom", "EscapeRoom", new { id = item.escapeRoomID }, new { @class = "Controller" }) |
-                @*@Html.ActionLink("Details", "Details", new { id = item.escapeRoomID })*@
+                
+                @Html.ActionLink("Slet", "DeleteBookingCustomer", "Booking", new { 
+                username = Request.Cookies["User"].Value,
+                escapeRoomID = @item.er.escapeRoomID,
+                BookTime = @item.bookingTime,
+                BDate  =@item.date
+                },
+           new { @class = "BookingController" })
             </td>
         </tr>
     }
