@@ -15,8 +15,16 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
+<ul class="nav navbar-nav navbar-right">
+    @if (@Session["User"] != null) {
+
+        <li>@Html.ActionLink(@Request.Cookies["User"].Value, "FormulaRegister", "Customer")</li>
+        <li>@Html.ActionLink("Login", "Login", "Customer", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    }
+    else {
+
         <li>@Html.ActionLink("Opret bruger", "FormulaRegister", "Customer", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Login", "Login", "Customer", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+    }
+</ul>
 }

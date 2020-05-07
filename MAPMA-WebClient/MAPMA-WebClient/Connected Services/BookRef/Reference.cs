@@ -23,6 +23,9 @@ namespace MAPMA_WebClient.BookRef {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int amountOfPeopleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -47,6 +50,19 @@ namespace MAPMA_WebClient.BookRef {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
             }
         }
         
@@ -629,6 +645,24 @@ namespace MAPMA_WebClient.BookRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Delete", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/DeleteRespon" +
             "se")]
         System.Threading.Tasks.Task DeleteAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAllFromUs" +
+            "er", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAllFromUs" +
+            "erResponse")]
+        System.Collections.Generic.List<MAPMA_WebClient.BookRef.Booking> GetAllFromUser(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAllFromUs" +
+            "er", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAllFromUs" +
+            "erResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MAPMA_WebClient.BookRef.Booking>> GetAllFromUserAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Update", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/UpdateRespon" +
+            "se")]
+        void Update(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate, int bookId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Update", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/UpdateRespon" +
+            "se")]
+        System.Threading.Tasks.Task UpdateAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate, int bookId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -688,6 +722,22 @@ namespace MAPMA_WebClient.BookRef {
         
         public System.Threading.Tasks.Task DeleteAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate) {
             return base.Channel.DeleteAsync(EmpID, username, ER_ID, bookTime, AOP, Bdate);
+        }
+        
+        public System.Collections.Generic.List<MAPMA_WebClient.BookRef.Booking> GetAllFromUser(string username) {
+            return base.Channel.GetAllFromUser(username);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MAPMA_WebClient.BookRef.Booking>> GetAllFromUserAsync(string username) {
+            return base.Channel.GetAllFromUserAsync(username);
+        }
+        
+        public void Update(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate, int bookId) {
+            base.Channel.Update(EmpID, username, ER_ID, bookTime, AOP, Bdate, bookId);
+        }
+        
+        public System.Threading.Tasks.Task UpdateAsync(int EmpID, string username, int ER_ID, System.TimeSpan bookTime, int AOP, System.DateTime Bdate, int bookId) {
+            return base.Channel.UpdateAsync(EmpID, username, ER_ID, bookTime, AOP, Bdate, bookId);
         }
     }
 }

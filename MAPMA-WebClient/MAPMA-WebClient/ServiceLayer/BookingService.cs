@@ -45,5 +45,9 @@ namespace MAPMA_WebClient.ServiceLayer
             return Service.GetAll();
 
         }
+        public List<Booking> GetAllBookingFromUser(string username) {
+            IBookingServices Service = new BookingServicesClient();
+            return Service.GetAllFromUser(username);
+        }
     }
 }

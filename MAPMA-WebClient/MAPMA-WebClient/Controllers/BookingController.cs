@@ -8,6 +8,7 @@ using MAPMA_WebClient.ServiceLayer;
 
 namespace MAPMA_WebClient.Controllers
 {
+    
     public class BookingController : Controller 
     {
         public ActionResult CreateBooking(int id) {
@@ -15,6 +16,11 @@ namespace MAPMA_WebClient.Controllers
             EscRef.EscapeRoom es = escs.GetEscapeRoom(id);
             ViewBag.TimeList = es.AvalibleTimes;
             ViewBag.EscapeRoom = es;
+            HttpCookie cookie = Request.Cookies["User"];
+
+        if(cookie == null) {
+                return RedirectToAction("Login", "Customer");
+            }
 
             return View();
         }
@@ -53,7 +59,9 @@ namespace MAPMA_WebClient.Controllers
             List<TimeSpan> freetime = escs.FreeTimes(escapeRoomID, BDate);
             ViewBag.freetimes = freetime;
             BookingService bs = new BookingService();
-            
+            HttpCookie cookie = Request.Cookies["User"];
+            cookie.Value = username;
+
             int c = bs.CreateBooking(EmployeeID, username, escapeRoomID, BookTime, AmountOfPeople, BDate);
             if (c == 0) {
                 TempData["message"] = "Den tid du prøvede at booke er desværre blevet taget ";

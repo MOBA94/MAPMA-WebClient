@@ -1,0 +1,67 @@
+﻿@model MAPMA_WebClient.ServiceLayer.BookingService
+
+@{
+    ViewBag.Title = "GetAllBookingFromUser";
+}
+
+<h2>GetAllBookingFromUser</h2>
+
+<div>
+    <h4>BookingService</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            booking nummer
+        </th>
+        <th>
+            escapeRum navn
+        </th>
+        <th>
+            datoen
+        </th>
+        <th>
+            tid
+        </th>
+        <th>
+            antal mensker
+        </th>      
+    </tr>
+
+    @foreach (var item in ViewBag.Userbook) {
+        <tr>
+            <td>
+                @item.
+            </td>
+            <td>
+                @item.description
+            </td>
+            <td>
+                @item.maxClearTime
+            </td>
+            <td>
+                @item.name
+            </td>
+            <td>
+                @item.price
+            </td>
+            <td>
+                @item.rating
+            </td>
+            <td>
+                @Html.ActionLink("Book", "CreateBooking", "Booking", new { id = item.escapeRoomID }, new { @class = "BookingController" }) |
+                @Html.ActionLink("Info", "GetEscapeRoom", "EscapeRoom", new { id = item.escapeRoomID }, new { @class = "Controller" }) |
+                @*@Html.ActionLink("Details", "Details", new { id = item.escapeRoomID })*@
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
