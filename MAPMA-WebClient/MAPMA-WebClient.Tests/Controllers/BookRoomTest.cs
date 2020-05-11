@@ -70,21 +70,8 @@ namespace MAPMA_WebClient.Tests.Controllers
             Assert.AreEqual(book.cus.username, hostBook.cus.username);
 
             bs.DeleteBooking(book.emp.employeeID, book.cus.username, book.er.escapeRoomID, book.bookingTime, book.amountOfPeople, book.date );
-        }
 
-        [TestMethod]
-        public void ViewResult() {
-
-            //Arrange
-            //BookingController bc = new BookingController();
-
-
-            //Act
-            //ViewResult result = bc. as ViewResult;
-
-            //Assert
-            //Assert.IsNotNull(result);
-
+            Assert.IsNull(bs.GetBooking(book.er.escapeRoomID, book.cus.username, book.date));
         }
     }
 }
