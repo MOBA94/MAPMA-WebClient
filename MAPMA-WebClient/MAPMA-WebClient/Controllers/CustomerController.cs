@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MAPMA_WebClient.CusRef;
 using MAPMA_WebClient.ServiceLayer;
+using MAPMA_WebClient.BookRef;
 
 namespace MAPMA_WebClient.Controllers
 {
@@ -19,7 +20,7 @@ namespace MAPMA_WebClient.Controllers
         public ActionResult GetCustomer(string Username) 
         {
             CustomerService cs = new CustomerService();
-            Customer cus = cs.GetCustomer(Username); 
+            CusRef.Customer cus = cs.GetCustomer(Username); 
             return View(cus);
         }
 
@@ -56,7 +57,7 @@ namespace MAPMA_WebClient.Controllers
             }
             
         }
-        [Authorize]
+
         public ActionResult GetAllBookingFromUser(string username) {
             BookingService bs = new BookingService();
             List<Booking> userbooking =  bs.GetAllBookingFromUser(username);
@@ -70,7 +71,8 @@ namespace MAPMA_WebClient.Controllers
             return View();
         }
 
-        [HttpPost]                
+        [HttpPost]        
+        [AllowAnonymous]        
         public ActionResult LoginComplet(string inputPassword, string username )
         {
             try {

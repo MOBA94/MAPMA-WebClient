@@ -33,6 +33,24 @@
   <wsdl:message name="IBookingServices_Delete_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteResponse" />
   </wsdl:message>
+  <wsdl:message name="IBookingServices_GetAllFromUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFromUser" />
+  </wsdl:message>
+  <wsdl:message name="IBookingServices_GetAllFromUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFromUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingServices_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="IBookingServices_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingServices_Deleteweb_InputMessage">
+    <wsdl:part name="parameters" element="tns:Deleteweb" />
+  </wsdl:message>
+  <wsdl:message name="IBookingServices_Deleteweb_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletewebResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBookingServices">
     <wsdl:operation name="Create">
       <wsdl:input wsaw:Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Create" message="tns:IBookingServices_Create_InputMessage" />
@@ -49,6 +67,18 @@
     <wsdl:operation name="Delete">
       <wsdl:input wsaw:Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Delete" message="tns:IBookingServices_Delete_InputMessage" />
       <wsdl:output wsaw:Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/DeleteResponse" message="tns:IBookingServices_Delete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFromUser">
+      <wsdl:input wsaw:Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAllFromUser" message="tns:IBookingServices_GetAllFromUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAllFromUserResponse" message="tns:IBookingServices_GetAllFromUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Update" message="tns:IBookingServices_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/UpdateResponse" message="tns:IBookingServices_Update_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Deleteweb">
+      <wsdl:input wsaw:Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Deleteweb" message="tns:IBookingServices_Deleteweb_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/DeletewebResponse" message="tns:IBookingServices_Deleteweb_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:service name="BookingServices">

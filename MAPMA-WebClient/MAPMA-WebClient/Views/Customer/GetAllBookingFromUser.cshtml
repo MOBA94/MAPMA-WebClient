@@ -1,0 +1,70 @@
+﻿@model MAPMA_WebClient.ServiceLayer.BookingService
+
+@{
+    ViewBag.Title = "GetAllBookingFromUser";
+}
+
+<h2>GetAllBookingFromUser</h2>
+
+<div>
+    <h4>BookingService</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            booking nummer
+        </th>
+        <th>
+            escapeRum navn
+        </th>
+        <th>
+            datoen
+        </th>
+        <th>
+            tid
+        </th>
+        <th>
+            antal mensker
+        </th>      
+    </tr>
+
+    @foreach (var item in ViewBag.Userbook) {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.er.name
+            </td>
+            <td>
+                @item.date
+            </td>
+            <td>
+                @item.bookingTime
+            </td>
+            <td>
+                @item.amountOfPeople
+            </td>
+            
+            <td>
+                
+                @Html.ActionLink("Slet", "DeleteBookingCustomer", "Booking", new { 
+                username = Request.Cookies["User"].Value,
+                escapeRoomID = @item.er.escapeRoomID,
+                BookTime = @item.bookingTime,
+                BDate  =@item.date
+                },
+           new { @class = "BookingController" })
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

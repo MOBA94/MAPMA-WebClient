@@ -74,4 +74,23 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Update">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="maxClearTime" type="xs:decimal" />
+        <xs:element minOccurs="0" name="cleanTime" type="xs:decimal" />
+        <xs:element minOccurs="0" name="price" type="xs:decimal" />
+        <xs:element minOccurs="0" name="rating" type="xs:decimal" />
+        <xs:element minOccurs="0" name="empId" type="xs:int" />
+        <xs:element minOccurs="0" name="EscId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -11,7 +11,7 @@
 
 <form method="post" action="@Url.Action("CreateBookingDone")">
     <label hidden class="epmid">Medarbejder nr:</label> <input hidden class="epmid" type="text" name="EmployeeID" value="1" readonly /><br /><br />
-    <label class="Booking">Brugernavn : </label> <input type="text" name="username" /><br /><br />
+    <label class="Booking">Brugernavn : </label> <input type="text" name="username" value="@Request.Cookies["User"].Value.ToString()" readonly /><br /><br />
     <label class="Booking">Escaperoom Id:</label><input type="text" name="escapeRoomID" value="@ViewBag.EscapeRoom.escapeRoomID" readonly /><br /><br />
      Dato : <input type="text" name="BDate" value="@ViewBag.ChosenDate" readonly /><br /><br />
     <select data-bind="TimeSpan" name="BookTime">
