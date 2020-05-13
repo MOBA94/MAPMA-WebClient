@@ -23,7 +23,7 @@ namespace MAPMA_WebClient.Controllers
             return View(cus);
         }
 
-
+        
         public ActionResult FormulaRegister() {
             return View();
         }
@@ -32,7 +32,7 @@ namespace MAPMA_WebClient.Controllers
         public ActionResult Register ( string Firstname, string Lastname, string Mail, string Phone, string Username, string Password )
         {
             CustomerService cs = new CustomerService();
-            Customer cus = new Customer()
+            CusRef.Customer cus = new CusRef.Customer()
             {
                 firstName = Firstname,
                 lastName = Lastname,
@@ -56,19 +56,44 @@ namespace MAPMA_WebClient.Controllers
             }
             
         }
+        [Authorize]
+        public ActionResult GetAllBookingFromUser(string username) {
+            BookingService bs = new BookingService();
+            List<Booking> userbooking =  bs.GetAllBookingFromUser(username);
+            ViewBag.Userbook = userbooking;
+            
+            return View();
+        }
 
         public ActionResult Login ( )
         {
             return View();
         }
 
-        [HttpPost]
+        [HttpPost]                
         public ActionResult LoginComplet(string inputPassword, string username )
         {
-            CustomerService cs = new CustomerService();
-            Customer cus = new Customer();
-            cs.Login(inputPassword, username);
-            return RedirectToAction("GetAllEscapeRoom", "EscapeRoom");
+            try {
+                CustomerService cs = new CustomerService();
+                CusRef.Customer cus = new CusRef.Customer();
+                cus = cs.Login(inputPassword, username);
+                Session["user"] = cus.username;
+                HttpCookie userCookie = new HttpCookie("user",cus.username);                
+                userCookie.Expires.AddHours(2);
+                HttpContext.Response.SetCookie(userCookie);
+
+                return RedirectToAction("GetAllEscapeRoom", "EscapeRoom");
+            }
+            catch(ArgumentException e) {
+                
+                TempData["message1"] = "det skete en fejl";
+                return RedirectToAction("Login", "Customer");
+            }
+        }
+
+        public ActionResult Logout() {
+            Session.Clear();
+            return RedirectToAction("Login", "Customer");
         }
 
 
