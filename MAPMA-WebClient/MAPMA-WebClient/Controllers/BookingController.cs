@@ -70,7 +70,7 @@ namespace MAPMA_WebClient.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult GetBooking (int escapeRoomID, string username, DateTime BDate)
         {
             BookingService bs = new BookingService();
@@ -78,7 +78,7 @@ namespace MAPMA_WebClient.Controllers
             return View(book);
         }
 
-        [HttpPost]
+        [HttpDelete]
         public ActionResult DeleteBooking (int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate)
         {
             BookingService bs = new BookingService();
@@ -86,6 +86,7 @@ namespace MAPMA_WebClient.Controllers
             return View();
         }
 
+        [HttpDelete]
         public ActionResult DeleteBookingCustomer(string username, int escapeRoomID, TimeSpan BookTime, DateTime BDate) {
             BookingService bs = new BookingService();
             bs.DeleteBookingCustomer( username,  escapeRoomID,  BookTime, BDate);
