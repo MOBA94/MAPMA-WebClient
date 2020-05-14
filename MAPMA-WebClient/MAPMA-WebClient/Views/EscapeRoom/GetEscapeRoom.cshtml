@@ -2,8 +2,11 @@
 <style>
 
     textarea#description {
-        width: 200px;
-        height: 200px;
+        float: right;
+        max-height: 200px;
+        min-height: 200px;
+        min-width: 400px;
+        max-width: 400px;
     }
 </style>
 @{
@@ -12,14 +15,13 @@
 
 <h2>GetEscapeRoom</h2>
 
+<img src="data:image;base64,@System.Convert.ToBase64String(@ViewBag.EscapeRoom1.Image)" />
 <textarea id="description">@ViewBag.EscapeRoom1.description</textarea>
 <br />
 <br />
-@*<img src="@Url.Action("PicShow","EscapeRoom", new {imgArray = ViewBag.EscapeRoom1.Image })"/>*@
-<img src="data:image;base64,@System.Convert.ToBase64String(@ViewBag.EscapeRoom1.Image)"/>
 
+ @Html.ActionLink("Lav en booking her", "CreateBooking", "Booking", new { id = ViewBag.EscapeRoom1.escapeRoomID }, new { @class = "BookingController" })
 
-
-@Html.ActionLink("Book", "CreateBooking", "Booking", new { id = ViewBag.EscapeRoom1.escapeRoomID }, new { @class = "BookingController" })
+<br />
 
 

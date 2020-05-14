@@ -47,7 +47,7 @@ namespace MAPMA_WebClient.Controllers
                 return RedirectToAction("Login", "Customer");
             }
             else if (i== 0) {
-                TempData["message1"] = "dette brugernavn er i brug";
+                TempData["message1"] = "Dette brugernavn er i brug";
                 return RedirectToAction("FormulaRegister", "Customer");
             }
             else {
@@ -57,13 +57,27 @@ namespace MAPMA_WebClient.Controllers
             }
             
         }
-
+        
         public ActionResult GetAllBookingFromUser(string username) {
-            BookingService bs = new BookingService();
-            List<Booking> userbooking =  bs.GetAllBookingFromUser(username);
-            ViewBag.Userbook = userbooking;
-            
-            return View();
+            try {
+                HttpCookieCollection myCookieCollection = Request.Cookies;
+                HttpCookie mycookie = myCookieCollection.Get("user");
+                if (mycookie != null) {
+                    BookingService bs = new BookingService();
+                    List<Booking> userbooking = bs.GetAllBookingFromUser(username);
+                    ViewBag.Userbook = userbooking;
+
+                    return View();
+                }
+                else {
+                    TempData["message"] = "du har prøvet at gå til en side hvor man skal være logget ind først. lave en bruger eller log ind.";
+                    return RedirectToAction("Login", "Customer");
+                }
+            }
+            catch (NullReferenceException e) {
+                TempData["message"] = "du har prøvet at gå til en side hvor man skal være logget ind først. lave en bruger eller log ind.";
+                return RedirectToAction("Login", "Customer");
+            }
         }
 
         public ActionResult Login ( )
@@ -79,12 +93,20 @@ namespace MAPMA_WebClient.Controllers
                 CustomerService cs = new CustomerService();
                 CusRef.Customer cus = new CusRef.Customer();
                 cus = cs.Login(inputPassword, username);
-                Session["user"] = cus.username;
-                HttpCookie userCookie = new HttpCookie("user",cus.username);                
-                userCookie.Expires.AddHours(2);
-                HttpContext.Response.SetCookie(userCookie);
+                if (cus != null) {
+                    Session["user"] = cus.username;
+                    HttpCookie userCookie = new HttpCookie("user", cus.username);
+                    userCookie.Expires.AddHours(2);
+                    HttpContext.Response.SetCookie(userCookie);
 
-                return RedirectToAction("GetAllEscapeRoom", "EscapeRoom");
+                    return RedirectToAction("GetAllBookingFromUser", "Customer", new {
+                        username = @Request.Cookies["User"].Value
+                    });
+                }
+                else {
+                    TempData["message"] = "det skete en fejl";
+                    return RedirectToAction("Login", "Customer");
+                }
             }
             catch(ArgumentException e) {
                 
@@ -94,7 +116,12 @@ namespace MAPMA_WebClient.Controllers
         }
 
         public ActionResult Logout() {
-            Session.Clear();
+            Session.Abandon();
+            if (Request.Cookies["user"] != null) {
+                var c = new HttpCookie("user");
+                c.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(c);
+            }
             return RedirectToAction("Login", "Customer");
         }
 

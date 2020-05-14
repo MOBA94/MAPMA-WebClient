@@ -4,7 +4,7 @@
     ViewBag.Title = "GetAllBookingFromUser";
 }
 
-<h2>GetAllBookingFromUser</h2>
+<h2>Tidligere bookinger</h2>
 
 <div>
     <h4>BookingService</h4>
@@ -19,7 +19,7 @@
             booking nummer
         </th>
         <th>
-            escapeRum navn
+            escaperoom
         </th>
         <th>
             datoen
@@ -28,7 +28,7 @@
             tid
         </th>
         <th>
-            antal mensker
+            antal mennesker
         </th>      
     </tr>
 
@@ -51,14 +51,30 @@
             </td>
             
             <td>
-                
-                @Html.ActionLink("Slet", "DeleteBookingCustomer", "Booking", new { 
+                <form action="@Url.Action("DeleteBookingCustomer")" method="delete">
+                    <input type="text"name ="username" value="@Request.Cookies["User"].Value" hidden />
+                    <input type="text"name ="escapeRoomID" value="@item.er.escapeRoomID" hidden/>
+                    <input type="text"name ="BookTime" value=" @item.bookingTime" hidden/>
+                    <input type="text"name ="BDate" value="@item.date" hidden/>
+                    <input type="submit" value="Slet booking"/>
+                </form>
+                @*@Html.ActionLink("Slet", "DeleteBookingCustomer", "Booking", new { 
                 username = Request.Cookies["User"].Value,
                 escapeRoomID = @item.er.escapeRoomID,
                 BookTime = @item.bookingTime,
                 BDate  =@item.date
                 },
-           new { @class = "BookingController" })
+           new { @class = "BookingController" })*@
+            </td>
+            <td>
+                @using (Html.BeginForm("DeleteBookingCustomer", "Booking", FormMethod.Post, new { @class = "form"} )) {
+
+                    <input type="hidden" name="username" value="@Request.Cookies["User"].Value"  />
+                    <input type="hidden" name="escapeRoomID" value="@item.er.escapeRoomID"  />
+                    <input type="hidden" name="BookTime" value=" @item.bookingTime"  />
+                    <input type="hidden" name="BDate" value="@item.date"  />
+                    <input type="submit" class="button" value="Slet" name="action:DeleteBookingCustomer"/>
+                }
             </td>
         </tr>
     }

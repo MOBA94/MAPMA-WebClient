@@ -1,4 +1,12 @@
 ﻿@*@model MAPMA_WebClient.BookRef.BookingServicesClient*@
+
+<style>
+    label#lbCreatEsc{
+        width: 100px;
+    }
+        
+        
+</style>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script>
         function Checkdate() {
@@ -19,12 +27,14 @@ document.getElementById("date").setAttribute("min", today);
         
     </script>
 
-<h2>CreateBooking</h2>
+<h2>Book rum</h2>
 <form action="@Url.Action("CreateBookingCheck")" method="post">
-    Escaperoom Id: <input id="escid" type="text" name="id" value="@ViewBag.EscapeRoom.escapeRoomID" readonly /><br /><br />
-    Dato : <input id="date" type="date" name="BDate" min="2020-01-01" required /><br /><br />
-     <p id="da">@TempData["message"]</p>
+    <input id="escid" type="text" name="id" value="@ViewBag.EscapeRoom.escapeRoomID" readonly hidden /><br /><br />
+    <label id="lbCreatEsc">Escaperoom:</label>  <label>@ViewBag.EscapeRoom.name</label><br /><br />
+    <label id="lbCreatEsc">Dato :</label>  <input id="date" type="date" name="BDate" min="2020-01-01" required /><br /><br />
     <input class="Button" type="submit" value="book rum" onclick="Checkdate()" />
+    <p id="da">@TempData["message"]</p>
+    <input id="escid" type="text" name="id" value="@ViewBag.EscapeRoom.escapeRoomID" readonly hidden />
 </form>
 
 @*<form method="post" action="@Url.Action("CreateBooking")">

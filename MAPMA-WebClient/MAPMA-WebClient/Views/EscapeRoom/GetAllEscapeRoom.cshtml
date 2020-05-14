@@ -4,7 +4,7 @@
     ViewBag.Title = "GetAllEscapeRoom";
 }
 
-<h2>GetAllEscapeRoom</h2>
+<h2>Escaperooms</h2>
 
 <p>
    @* @Html.ActionLink("Create New", "Create")*@
@@ -12,52 +12,52 @@
 <table class="table">
     <tr>
         <th>
-            id
+
         </th>
         <th>
-            description
+            Navn
         </th>
         <th>
-            maxClearTime
+            Tid at komme igennem rummet
+        </th>
+
+        <th>
+            Pris
         </th>
         <th>
-            name
+            Rating
         </th>
-        <th>
-            price
-        </th>
-        <th>
-            rating
-        </th>
+        <th></th>
         <th></th>
     </tr>
 
 @foreach (var item in ViewBag.List) {
-    <tr>
-        <td>
-            @item.escapeRoomID
-        </td>
-        <td>
-            @item.description
-        </td>
-        <td>
-            @item.maxClearTime
-        </td>
-        <td>
-            @item.name
-        </td>
-        <td>
-             @item.price
-        </td>
-        <td>
-            @item.rating
-        </td>
-        <td>
-            @Html.ActionLink("Book", "CreateBooking", "Booking", new { id = item.escapeRoomID }, new { @class = "BookingController" }) |
-            @Html.ActionLink("Info", "GetEscapeRoom", "EscapeRoom",new { id = item.escapeRoomID }, new {@class ="Controller" }) |
-            @*@Html.ActionLink("Details", "Details", new { id = item.escapeRoomID })*@
-        </td>
-    </tr>
+<tr>
+    <td>
+        <img src="data:image;base64,@System.Convert.ToBase64String(item.Image)" height="150" width="150" />
+    </td>
+    <td>
+        @item.name
+    </td>
+    <td>
+        @item.maxClearTime
+    </td>
+    <td>
+        @item.price
+    </td>
+    <td>
+        @item.rating
+    </td>
+    <td>
+        @Html.ActionLink("Book", "CreateBooking", "Booking", new { id = item.escapeRoomID }, new { @class = "BookingController" })
+       
+    </td>
+    <td>
+      
+        @Html.ActionLink("Info", "GetEscapeRoom", "EscapeRoom", new { id = item.escapeRoomID }, new { @class = "Controller" })
+        
+    </td>
+</tr>
 }
 
 </table>

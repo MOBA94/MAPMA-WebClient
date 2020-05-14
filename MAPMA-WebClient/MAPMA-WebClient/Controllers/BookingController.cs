@@ -44,7 +44,7 @@ namespace MAPMA_WebClient.Controllers
             else
             {
                 ViewBag.freetimes = freetime;
-                ViewBag.ChosenDate = BDate;
+                ViewBag.ChosenDate = BDate.ToString("dd-MM-yyyy");
             }
 
             return View();
@@ -86,12 +86,18 @@ namespace MAPMA_WebClient.Controllers
             return View();
         }
 
-        [HttpDelete]
+     [HttpDelete]
         public ActionResult DeleteBookingCustomer(string username, int escapeRoomID, TimeSpan BookTime, DateTime BDate) {
-            BookingService bs = new BookingService();
-            bs.DeleteBookingCustomer( username,  escapeRoomID,  BookTime, BDate);
+            try {                
+                BookingService bs = new BookingService();
+                bs.DeleteBookingCustomer(username, escapeRoomID, BookTime, BDate);               
 
-            return RedirectToAction("GetAllBookingFromUser", "Customer", new { username = @Request.Cookies["User"].Value });
+                return RedirectToAction("GetAllBookingFromUser", "Customer", new { username = @Request.Cookies["User"].Value });
+            }
+            catch(NullReferenceException e) {
+                TempData["message"] = "du har prøvet at gå til en side hvor man skal være logget ind først. lave en bruger eller log ind.";
+                return RedirectToAction("Login", "Customer");
+            }
         }
 
         public ActionResult GetAllBookings() {
