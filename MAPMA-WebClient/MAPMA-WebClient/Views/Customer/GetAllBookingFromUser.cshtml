@@ -49,26 +49,9 @@
             <td>
                 @item.amountOfPeople
             </td>
-            
-            <td>
-                <form action="@Url.Action("DeleteBookingCustomer")" method="delete">
-                    <input type="text"name ="username" value="@Request.Cookies["User"].Value" hidden />
-                    <input type="text"name ="escapeRoomID" value="@item.er.escapeRoomID" hidden/>
-                    <input type="text"name ="BookTime" value=" @item.bookingTime" hidden/>
-                    <input type="text"name ="BDate" value="@item.date" hidden/>
-                    <input type="submit" value="Slet booking"/>
-                </form>
-                @*@Html.ActionLink("Slet", "DeleteBookingCustomer", "Booking", new { 
-                username = Request.Cookies["User"].Value,
-                escapeRoomID = @item.er.escapeRoomID,
-                BookTime = @item.bookingTime,
-                BDate  =@item.date
-                },
-           new { @class = "BookingController" })*@
-            </td>
             <td>
                 @using (Html.BeginForm("DeleteBookingCustomer", "Booking", FormMethod.Post, new { @class = "form"} )) {
-
+                    @Html.HttpMethodOverride(HttpVerbs.Delete)
                     <input type="hidden" name="username" value="@Request.Cookies["User"].Value"  />
                     <input type="hidden" name="escapeRoomID" value="@item.er.escapeRoomID"  />
                     <input type="hidden" name="BookTime" value=" @item.bookingTime"  />
