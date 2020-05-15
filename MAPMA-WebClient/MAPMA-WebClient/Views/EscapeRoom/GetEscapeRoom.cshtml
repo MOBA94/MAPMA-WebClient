@@ -7,6 +7,7 @@
         min-height: 200px;
         min-width: 400px;
         max-width: 400px;
+        border:hidden;     
     }
 </style>
 @{
@@ -16,7 +17,7 @@
 <h2>GetEscapeRoom</h2>
 
 <img src="data:image;base64,@System.Convert.ToBase64String(@ViewBag.EscapeRoom1.Image)" />
-<textarea id="description">@ViewBag.EscapeRoom1.description</textarea>
+<textarea id="description" readonly>@ViewBag.EscapeRoom1.description</textarea>
 <br />
 <br />
 

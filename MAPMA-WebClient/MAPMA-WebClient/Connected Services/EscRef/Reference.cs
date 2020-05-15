@@ -456,12 +456,12 @@ namespace MAPMA_WebClient.EscRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/Updat" +
             "e", ReplyAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/Updat" +
             "eResponse")]
-        void Update(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId, int EscId);
+        void Update(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId, int EscId, byte[] img);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/Updat" +
             "e", ReplyAction="http://localhost:8735/Design_Time_Addresses/Escaperoom/IEscapeRoom_Services/Updat" +
             "eResponse")]
-        System.Threading.Tasks.Task UpdateAsync(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId, int EscId);
+        System.Threading.Tasks.Task UpdateAsync(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId, int EscId, byte[] img);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -531,12 +531,12 @@ namespace MAPMA_WebClient.EscRef {
             return base.Channel.FreeTimesAsync(ER_ID, Bdate);
         }
         
-        public void Update(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId, int EscId) {
-            base.Channel.Update(name, description, maxClearTime, cleanTime, price, rating, empId, EscId);
+        public void Update(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId, int EscId, byte[] img) {
+            base.Channel.Update(name, description, maxClearTime, cleanTime, price, rating, empId, EscId, img);
         }
         
-        public System.Threading.Tasks.Task UpdateAsync(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId, int EscId) {
-            return base.Channel.UpdateAsync(name, description, maxClearTime, cleanTime, price, rating, empId, EscId);
+        public System.Threading.Tasks.Task UpdateAsync(string name, string description, decimal maxClearTime, decimal cleanTime, decimal price, decimal rating, int empId, int EscId, byte[] img) {
+            return base.Channel.UpdateAsync(name, description, maxClearTime, cleanTime, price, rating, empId, EscId, img);
         }
     }
 }

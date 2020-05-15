@@ -671,6 +671,16 @@ namespace MAPMA_WebClient.BookRef {
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/Deleteweb", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/DeletewebRes" +
             "ponse")]
         System.Threading.Tasks.Task DeletewebAsync(string username, int ER_ID, System.TimeSpan bookTime, System.DateTime Bdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAllOneRoo" +
+            "m", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAllOneRoo" +
+            "mResponse")]
+        System.Collections.Generic.List<MAPMA_WebClient.BookRef.Booking> GetAllOneRoom(int EscId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAllOneRoo" +
+            "m", ReplyAction="http://localhost:8734/Design_Time_Addresses/Booking/IBookingServices/GetAllOneRoo" +
+            "mResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MAPMA_WebClient.BookRef.Booking>> GetAllOneRoomAsync(int EscId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -754,6 +764,14 @@ namespace MAPMA_WebClient.BookRef {
         
         public System.Threading.Tasks.Task DeletewebAsync(string username, int ER_ID, System.TimeSpan bookTime, System.DateTime Bdate) {
             return base.Channel.DeletewebAsync(username, ER_ID, bookTime, Bdate);
+        }
+        
+        public System.Collections.Generic.List<MAPMA_WebClient.BookRef.Booking> GetAllOneRoom(int EscId) {
+            return base.Channel.GetAllOneRoom(EscId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MAPMA_WebClient.BookRef.Booking>> GetAllOneRoomAsync(int EscId) {
+            return base.Channel.GetAllOneRoomAsync(EscId);
         }
     }
 }

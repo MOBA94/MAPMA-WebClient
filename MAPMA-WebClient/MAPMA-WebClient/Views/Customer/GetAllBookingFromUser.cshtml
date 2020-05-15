@@ -1,5 +1,23 @@
 ﻿@model MAPMA_WebClient.ServiceLayer.BookingService
-
+<script>
+  function ShowWarning(){
+    var result = confirm("Vil du slette denne booking?");
+    if(result) {
+    return true;
+    }
+    else {
+    return false;
+    }
+  }
+</script>
+<style>
+    .button{
+        background-color :black;
+        color:white;
+        width : 100px;
+        height:30px;
+    }
+</style>
 @{
     ViewBag.Title = "GetAllBookingFromUser";
 }
@@ -50,20 +68,19 @@
                 @item.amountOfPeople
             </td>
             <td>
-                @using (Html.BeginForm("DeleteBookingCustomer", "Booking", FormMethod.Post, new { @class = "form"} )) {
-                    @Html.HttpMethodOverride(HttpVerbs.Delete)
-                    <input type="hidden" name="username" value="@Request.Cookies["User"].Value"  />
-                    <input type="hidden" name="escapeRoomID" value="@item.er.escapeRoomID"  />
-                    <input type="hidden" name="BookTime" value=" @item.bookingTime"  />
-                    <input type="hidden" name="BDate" value="@item.date"  />
-                    <input type="submit" class="button" value="Slet" name="action:DeleteBookingCustomer"/>
+                @if(DateTime.Now.AddDays(7) <= item.date)
+                {
+                    using (Html.BeginForm("DeleteBookingCustomer", "Booking", FormMethod.Post, new { @class = "form"} )) {
+                        @Html.HttpMethodOverride(HttpVerbs.Delete)
+                        <input type="hidden" name="username" value="@Request.Cookies["User"].Value"  />
+                        <input type="hidden" name="escapeRoomID" value="@item.er.escapeRoomID"  />
+                        <input type="hidden" name="BookTime" value=" @item.bookingTime"  />
+                        <input type="hidden" name="BDate" value="@item.date"  />
+                        <input type="submit" class="button" value="Slet" name="action:DeleteBookingCustomer" onclick="javascript:return ShowWarning();"/>
                 }
+                        }
             </td>
         </tr>
     }
 
 </table>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

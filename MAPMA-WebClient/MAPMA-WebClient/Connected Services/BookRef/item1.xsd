@@ -113,4 +113,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllOneRoom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EscId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOneRoomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ModelLayer" minOccurs="0" name="GetAllOneRoomResult" nillable="true" type="q8:ArrayOfBooking" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

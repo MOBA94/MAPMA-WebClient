@@ -29,13 +29,13 @@
         <h4>Customer</h4>
         
         <form method="post" action="@Url.Action("Register")">
-            <label class="Register">Fornavn :</label> <input class="inputfields" type="text" name="Firstname" /><br /><br />
-            <label class="Register">Efternavn :</label> <input class="inputfields" type="text" name="Lastname" /><br /><br />
-            <label class="Register">Mail :</label><input class="inputfields" type="text" name="Mail" /><br /><br />
-            <label class="Register">TLF.nr : </label><input class="inputfields" type="text" name="Phone" /><br /><br />
-            <label class="Register">Username:</label>  <input class="inputfields" type="text" name="Username" />
+            <label class="Register">Fornavn :</label> <input class="inputfields" type="text" name="Firstname" maxlength="16"/><br /><br />
+            <label class="Register">Efternavn :</label> <input class="inputfields" type="text" name="Lastname" maxlength="16"/><br /><br />
+            <label class="Register">Mail :</label><input class="inputfields" type="text" name="Mail" maxlength="24"/><br /><br />
+            <label class="Register">TLF.nr : </label><input class="inputfields" type="text" name="Phone" maxlength="10"/><br /><br />
+            <label class="Register">Username:</label>  <input class="inputfields" type="text" name="Username" maxlength="16"/>
             <p class="Error">@TempData["message1"]</p><br /><br />
-            <label class="Register">Password:</label>  <input class="inputfields" type="text" name="Password" />
+            <label class="Register">Password:</label>  <input class="inputfields" type="text" name="Password" maxlength="16"/>
             <p class="Error">@TempData["message2"]</p><br /><br /><br /><br />
             <input class="Button" type="submit" value="Opret som Bruger" />
         </form>
