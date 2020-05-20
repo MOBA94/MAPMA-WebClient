@@ -8,9 +8,23 @@ using MAPMA_WebClient.ServiceLayer;
 
 namespace MAPMA_WebClient.Controllers
 {
-    
+    /// <summary>
+    /// <author>
+    /// Mick O. B. Andersen
+    /// Anders S. Brygger
+    /// Peter S. Clausen
+    /// Anders B. Larsen
+    /// Mads G. Ranzau
+    /// </author>
+    /// </summary>
     public class BookingController : Controller 
     {
+
+        /// <summary>
+        /// Starts the booking by getting the escaperoom with the id
+        /// </summary>
+        /// <param name="id">The EscapeRoom ID</param>
+        /// <returns>Returns the view CreateBooking if customer is logged in and redirects to login if not</returns>
         public ActionResult CreateBooking(int id) {
             EscapeRoomService escs = new EscapeRoomService();
             EscRef.EscapeRoom es = escs.GetEscapeRoom(id);
@@ -25,6 +39,12 @@ namespace MAPMA_WebClient.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Countiues the creation of a booking and gives it a date
+        /// </summary>
+        /// <param name="id">The EscapeRoom ID</param>
+        /// <param name="BDate">The Date of the booking</param>
+        /// <returns>Returns the view CreateBookingCheck or redirects to CreateBooking if BDate == null and if no freetimes are avalible</returns>
         [HttpPost]
         public ActionResult CreateBookingCheck(int id, DateTime BDate) {
             EscapeRoomService escs = new EscapeRoomService();
@@ -50,6 +70,16 @@ namespace MAPMA_WebClient.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Finishes the booking and puts it in the database
+        /// </summary>
+        /// <param name="EmployeeID">An employees ID</param>
+        /// <param name="username">A Username from the user</param>
+        /// <param name="escapeRoomID">The EscapeRoom ID</param>
+        /// <param name="BookTime">The Time for the booking</param>
+        /// <param name="AmountOfPeople">The Amount of people</param>
+        /// <param name="BDate">The Date of the booking</param>
+        /// <returns>Returns the View CreateBookingDone</returns>
         [HttpPost]
         public ActionResult CreateBookingDone(int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate)
         {
@@ -70,6 +100,13 @@ namespace MAPMA_WebClient.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Gets a booking from the database
+        /// </summary>
+        /// <param name="escapeRoomID">The EscapeRoom ID</param>
+        /// <param name="username">A Username from the user</param>
+        /// <param name="BDate">The Date of the booking</param>
+        /// <returns>Returns the view GetBooking with the found booking</returns>
         [HttpGet]
         public ActionResult GetBooking (int escapeRoomID, string username, DateTime BDate)
         {
@@ -78,6 +115,16 @@ namespace MAPMA_WebClient.Controllers
             return View(book);
         }
 
+        /// <summary>
+        /// Deletes a Booking form the database
+        /// </summary>
+        /// <param name="EmployeeID">An employees ID</param>
+        /// <param name="username">A Username from the user</param>
+        /// <param name="escapeRoomID">The EscapeRoom ID</param>
+        /// <param name="BookTime"> The Time for the booking</param>
+        /// <param name="AmountOfPeople">The Amount of people</param>
+        /// <param name="BDate">The Date of the booking</param>
+        /// <returns>Returns the view DeleteBooking</returns>
         [HttpDelete]
         public ActionResult DeleteBooking (int EmployeeID, string username, int escapeRoomID, TimeSpan BookTime, int AmountOfPeople, DateTime BDate)
         {
@@ -86,7 +133,15 @@ namespace MAPMA_WebClient.Controllers
             return View();
         }
 
-     [HttpDelete]
+        /// <summary>
+        /// Deletes a booking from the customers list of bookings
+        /// </summary>
+        /// <param name="username">A Username from the user</param>
+        /// <param name="escapeRoomID">The EscapeRoom ID</param>
+        /// <param name="BookTime"> The Time for the booking</param>
+        /// <param name="BDate">The Date of the booking</param>
+        /// <returns>Returns a redirects to GetAllBookingFromUser with the deleted booking no longer on the list. If an exception happens redirect to Login with a message</returns>
+        [HttpDelete]
         public ActionResult DeleteBookingCustomer(string username, int escapeRoomID, TimeSpan BookTime, DateTime BDate) {
             try {                
                 BookingService bs = new BookingService();
@@ -100,6 +155,10 @@ namespace MAPMA_WebClient.Controllers
             }
         }
 
+        /// <summary>
+        /// Get all the bookings from the database
+        /// </summary>
+        /// <returns>Returns the view GetAllBookings</returns>
         public ActionResult GetAllBookings() {
             BookingService bs = new BookingService();
            List<Booking> books =  bs.GetAllBookings();

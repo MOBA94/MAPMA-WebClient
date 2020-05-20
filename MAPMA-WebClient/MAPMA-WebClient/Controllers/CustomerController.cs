@@ -9,13 +9,31 @@ using MAPMA_WebClient.BookRef;
 
 namespace MAPMA_WebClient.Controllers
 {
+    /// <summary>
+    /// <author>
+    /// Mick O. B. Andersen
+    /// Anders S. Brygger
+    /// Peter S. Clausen
+    /// Anders B. Larsen
+    /// Mads G. Ranzau
+    /// </author>
+    /// </summary>
     public class CustomerController : Controller {
 
+        /// <summary>
+        /// An empty version of the GetCustomer method
+        /// </summary>
+        /// <returns>returns the view GetCustomer with nothing</returns>
         public ActionResult GetCustomer ( )
         {
             return View();
         }
 
+        /// <summary>
+        /// Gets a customer with the parameters
+        /// </summary>
+        /// <param name="Username">A Username from the user</param>
+        /// <returns>returns the view GetCustomer with the chosen users info</returns>
         [HttpPost]
         public ActionResult GetCustomer(string Username) 
         {
@@ -24,11 +42,24 @@ namespace MAPMA_WebClient.Controllers
             return View(cus);
         }
 
-        
+        /// <summary>
+        /// Gets the view of the register page
+        /// </summary>
+        /// <returns>returns the view FormulaRegister</returns>
         public ActionResult FormulaRegister() {
             return View();
         }
 
+        /// <summary>
+        /// Registers a customer to the database
+        /// </summary>
+        /// <param name="Firstname">the first name of the customer</param>
+        /// <param name="Lastname">the last name of the customer</param>
+        /// <param name="Mail">the mail of the customer</param>
+        /// <param name="Phone">the phone number of the customer</param>
+        /// <param name="Username">the input username</param>
+        /// <param name="Password">the input password</param>
+        /// <returns>returns a Redirects to either Login if succesfull or the FormulaRegister with a message if failed</returns>
         [HttpPost]
         public ActionResult Register ( string Firstname, string Lastname, string Mail, string Phone, string Username, string Password )
         {
@@ -57,7 +88,12 @@ namespace MAPMA_WebClient.Controllers
             }
             
         }
-        
+
+        /// <summary>
+        /// Gets all the bookings from the user
+        /// </summary>
+        /// <param name="username">A Username of the user</param>
+        /// <returns>returns the view GetAllBookingFromUser with the chosen user if failed redirects to Login with a message</returns>
         public ActionResult GetAllBookingFromUser(string username) {
             try {
                 HttpCookieCollection myCookieCollection = Request.Cookies;
@@ -80,11 +116,21 @@ namespace MAPMA_WebClient.Controllers
             }
         }
 
+        /// <summary>
+        /// A way to get the login page
+        /// </summary>
+        /// <returns>Returns the view Login</returns>
         public ActionResult Login ( )
         {
             return View();
         }
 
+        /// <summary>
+        /// Completes the Login by cheacking the customer is in the database
+        /// </summary>
+        /// <param name="inputPassword">the input password</param>
+        /// <param name="username">the input username</param>
+        /// <returns>retunrs a redirect to GetAllBookingFromUser if succesfull or redirects to Login with a message if failed</returns>
         [HttpPost]        
         [AllowAnonymous]        
         public ActionResult LoginComplet(string inputPassword, string username )
@@ -115,6 +161,10 @@ namespace MAPMA_WebClient.Controllers
             }
         }
 
+        /// <summary>
+        /// Logs out the customer
+        /// </summary>
+        /// <returns>Returns a redirect to Login</returns>
         public ActionResult Logout() {
             Session.Abandon();
             if (Request.Cookies["user"] != null) {
