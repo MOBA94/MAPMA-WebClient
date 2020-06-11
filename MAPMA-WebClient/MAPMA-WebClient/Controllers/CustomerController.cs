@@ -94,16 +94,16 @@ namespace MAPMA_WebClient.Controllers
         /// </summary>
         /// <param name="username">A Username of the user</param>
         /// <returns>returns the view GetAllBookingFromUser with the chosen user if failed redirects to Login with a message</returns>
-        public ActionResult GetAllBookingFromUser(string username) {
+        public ActionResult GetAllBookingFromUser() {
             try {
                 HttpCookieCollection myCookieCollection = Request.Cookies;
                 HttpCookie mycookie = myCookieCollection.Get("user");
                 if (mycookie != null) {
-                    BookingService bs = new BookingService();
-                    List<Booking> userbooking = bs.GetAllBookingFromUser(username);
-                    ViewBag.Userbook = userbooking;
+                        BookingService bs = new BookingService();
+                        List<Booking> userbooking = bs.GetAllBookingFromUser(mycookie.Value);
+                        ViewBag.Userbook = userbooking;
 
-                    return View();
+                        return View();
                 }
                 else {
                     TempData["message"] = "du har prøvet at gå til en side hvor man skal være logget ind først. lave en bruger eller log ind.";
@@ -145,9 +145,7 @@ namespace MAPMA_WebClient.Controllers
                     userCookie.Expires.AddHours(2);
                     HttpContext.Response.SetCookie(userCookie);
 
-                    return RedirectToAction("GetAllBookingFromUser", "Customer", new {
-                        username = @Request.Cookies["User"].Value
-                    });
+                    return RedirectToAction("GetAllBookingFromUser", "Customer");
                 }
                 else {
                     TempData["message"] = "det skete en fejl";

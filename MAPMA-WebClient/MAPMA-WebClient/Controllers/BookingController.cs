@@ -147,7 +147,7 @@ namespace MAPMA_WebClient.Controllers
                 BookingService bs = new BookingService();
                 bs.DeleteBookingCustomer(username, escapeRoomID, BookTime, BDate);               
 
-                return RedirectToAction("GetAllBookingFromUser", "Customer", new { username = @Request.Cookies["User"].Value });
+                return RedirectToAction("GetAllBookingFromUser", "Customer");
             }
             catch(NullReferenceException e) {
                 TempData["message"] = "du har prøvet at gå til en side hvor man skal være logget ind først. lave en bruger eller log ind.";
